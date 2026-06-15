@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TUXMAT // PRODUCT</title>
+  <meta name="description" content="TuxMat custom-fit floor mats. Developed using 3D laser scanning. TriForce multi-layer construction.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="product">
+  <a class="skip" href="#pdp">Skip to content</a>
+
+  <header class="header">
+    <button class="menu-btn" type="button" data-menu-open><span class="bars"><span></span><span></span></span> Menu</button>
+    <a class="brand" href="index.html">TUXMAT</a>
+    <div class="tools">
+      <button type="button" data-search aria-label="Search">Search</button>
+      <button type="button" data-cart-open>Cart (<span data-cart-count>0</span>)</button>
+    </div>
+  </header>
+
+  <main id="pdp" class="pdp">
+    <!-- Gallery -->
+    <div class="pdp-gallery">
+      <div class="pdp-thumbs" data-thumbs>
+        <button class="pdp-thumb active" type="button" data-thumb="m001.jpg"></button>
+        <button class="pdp-thumb" type="button" data-thumb="m002.jpg"></button>
+        <button class="pdp-thumb" type="button" data-thumb="m003.jpg"></button>
+        <button class="pdp-thumb" type="button" data-thumb="m004.jpg"></button>
+      </div>
+      <div class="pdp-main" data-main></div>
+    </div>
+
+    <!-- Info -->
+    <div class="pdp-info">
+      <nav class="pdp-bc"><a href="index.html">Home</a> / <a href="index.html#collection">Collection</a> / <span data-bc>—</span></nav>
+      <h1 class="pdp-title" data-title>TUXMAT</h1>
+      <p class="pdp-coll" data-coll>—</p>
+      <p class="pdp-price" data-price>$0.00</p>
+      <p class="pdp-install" data-install>Pay in 4 interest-free installments.</p>
+
+      <p class="model-row-label label">Model</p>
+      <div class="model-tabs" data-model-tabs>
+        <button class="model-tab active" type="button" data-model="001" data-thumb="m001.jpg"><span>001</span></button>
+        <button class="model-tab" type="button" data-model="002" data-thumb="m002.jpg"><span>002</span></button>
+        <button class="model-tab" type="button" data-model="003" data-thumb="m003.jpg"><span>003</span></button>
+        <button class="model-tab" type="button" data-model="004" data-thumb="m004.jpg"><span>004</span></button>
+      </div>
+
+      <div class="pdp-add"><button class="btn" style="width:100%" type="button" data-add>Add to cart</button></div>
+
+      <p class="pdp-desc">Meticulously engineered to disappear into the car you chose. Developed using 3D laser scanning for an exact, model-specific fit, with raised walls that carry coverage up the footwell. Up to 2.5x more coverage than conventional mats.*</p>
+
+      <div class="pdp-acc">
+        <details open><summary>Size &amp; fit <span class="pl">+</span></summary><div class="body">Scanned to your exact year, make, and model. Integrated retention locks into factory anchor points.</div></details>
+        <details><summary>Construction <span class="pl">+</span></summary><div class="body">TriForce&trade; multi-layer construction with a patented carbon fiber-inspired surface. Water-resistant. Wipes clean.</div></details>
+        <details><summary>Shipping &amp; returns <span class="pl">+</span></summary><div class="body">Free shipping across Canada. 30-day returns. Limited Lifetime Warranty.</div></details>
+      </div>
+
+      <p class="installments">*Surface area comparison to 2025 Tesla Model Y OEM floor mats. Sample pricing for this prototype. Checkout is a demo.</p>
+    </div>
+  </main>
+
+  <!-- Related -->
+  <section class="related wrap">
+    <div class="coll-head"><h2 class="h-lg">More from the line</h2><a class="label" href="index.html#collection" style="color:var(--white)">View all</a></div>
+    <div class="grid" data-related></div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-grid">
+      <div><a class="brand" href="index.html" style="justify-self:start">TUXMAT</a><p class="muted" style="margin-top:16px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;max-width:30ch">Custom-fit floor mats, engineered. Nothing overlooked.</p></div>
+      <div><h4>Shop</h4><ul><li><a href="index.html#collection">Collection</a></li></ul></div>
+      <div><h4>Assistance</h4><ul><li><a href="https://www.tuxmat.ca/">Shipping</a></li><li><a href="https://www.tuxmat.ca/">Returns</a></li></ul></div>
+      <div class="news"><h4>Newsletter</h4><form data-newsletter><input type="email" placeholder="EMAIL" aria-label="Email" required></form><p class="demo-tag" style="margin-top:12px">Instagram &middot; FWA</p></div>
+    </div>
+    <div class="footer-bottom"><div class="wrap"><span>&copy; 2026 TuxMat Inc.</span><span>Designed to elevate</span></div></div>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
