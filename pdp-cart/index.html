@@ -1,0 +1,325 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TuxMat | Custom-Fit Floor Mats, Built for Your Vehicle</title>
+  <meta name="description" content="Custom-fit floor mats developed using 3D laser scanning. Configure coverage for your exact year, make, and model.">
+  <meta name="theme-color" content="#0d0e10">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <div class="orbs" aria-hidden="true">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <header class="nav">
+    <a class="wordmark" href="#overview">TuxMat<sup>&reg;</sup></a>
+    <button class="cart-btn" type="button" aria-label="Open cart">
+      Cart <span class="cart-badge" hidden>0</span>
+    </button>
+  </header>
+
+  <nav class="localnav" aria-label="Product sections">
+    <span class="localnav-name">Custom-Fit Floor Mats</span>
+    <div class="localnav-links">
+      <a href="#overview">Overview</a>
+      <a href="#coverage">Coverage</a>
+      <a href="#compare">Compare</a>
+      <a href="#reviews">Rating</a>
+    </div>
+    <div class="localnav-buy">
+      <span class="localnav-price" data-price>From $189.99</span>
+      <button class="btn btn-small" type="button" data-atc>Add to Cart</button>
+    </div>
+  </nav>
+
+  <main id="main">
+
+    <!-- Overview -->
+    <section class="pdp-hero" id="overview" aria-labelledby="pdp-title">
+      <div class="container pdp-grid">
+        <div class="pdp-media media-slot ratio-4x5 anim-hero" data-asset="pdpHero" role="img"
+             aria-label="TuxMat custom-fit floor mats installed in a vehicle, raised walls following the footwell contours under directional light.">
+          <span class="slot-tag">placeholder &middot; pdpHero</span>
+        </div>
+        <div class="pdp-info">
+          <p class="eyebrow anim-hero">TuxMat&reg; custom-fit floor mats</p>
+          <h1 id="pdp-title" class="anim-hero">Designed for the car you chose.</h1>
+          <p class="proof anim-hero">Developed using 3D laser scanning. Up to 2.5x more coverage.<sup>*</sup></p>
+          <p class="price-line anim-hero"><span data-price>From $189.99</span> CAD &middot; Rated 4.8&#9733;<sup>**</sup></p>
+
+          <form class="config glass anim-hero" aria-label="Configure your mats">
+            <fieldset class="config-block">
+              <legend>Your vehicle</legend>
+              <div class="vehicle-row">
+                <select name="year" aria-label="Year" required>
+                  <option value="" selected disabled>Year</option>
+                </select>
+                <select name="make" aria-label="Make" required>
+                  <option value="" selected disabled>Make</option>
+                </select>
+                <select name="model" aria-label="Model" required disabled>
+                  <option value="" selected disabled>Model</option>
+                </select>
+              </div>
+            </fieldset>
+
+            <fieldset class="config-block">
+              <legend>Coverage</legend>
+              <div class="tier-row" role="radiogroup">
+                <label class="tier-card">
+                  <input type="radio" name="coverage" value="front">
+                  <span class="tier-name">Front Row</span>
+                  <span class="tier-price">$189.99</span>
+                </label>
+                <label class="tier-card">
+                  <input type="radio" name="coverage" value="full" checked>
+                  <span class="tier-name">Front + Second Row</span>
+                  <span class="tier-price">$279.99</span>
+                </label>
+                <label class="tier-card">
+                  <input type="radio" name="coverage" value="fullst">
+                  <span class="tier-name">Full Set + SuperTrunk&trade;</span>
+                  <span class="tier-price">$329.99</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <fieldset class="config-block">
+              <legend>Finish</legend>
+              <div class="swatch-row" role="radiogroup">
+                <label class="swatch">
+                  <input type="radio" name="color" value="Black" checked>
+                  <span class="swatch-dot dot-black" aria-hidden="true"></span>
+                  <span>Black</span>
+                </label>
+                <label class="swatch">
+                  <input type="radio" name="color" value="Two-Tone Gray">
+                  <span class="swatch-dot dot-gray" aria-hidden="true"></span>
+                  <span>Two-Tone Gray</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <button class="btn btn-block" type="submit" disabled data-config-atc>Select your vehicle</button>
+            <p class="config-note">Backed by our Limited Lifetime Warranty.</p>
+          </form>
+
+          <p class="footnote anim-hero">*Surface area comparison to 2025 Tesla Model Y OEM floor mats.<br>**Based on 4,500+ Google Ratings.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-bleed design statement -->
+    <section class="bleed" aria-labelledby="design-title">
+      <div class="bleed-frame anim">
+        <div class="media-slot bleed-media" data-asset="bleedDesign" role="img"
+             aria-label="Wide interior shot, the mat surface blending with the cabin under low dramatic light.">
+          <span class="slot-tag">placeholder &middot; bleedDesign</span>
+        </div>
+        <div class="bleed-copy">
+          <h2 id="design-title">Designed to belong.</h2>
+          <p class="proof">An understated surface that complements your interior, never competing with it.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Coverage guide -->
+    <section class="section" id="coverage" aria-labelledby="coverage-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow anim">Coverage guide</p>
+          <h2 id="coverage-title" class="anim">Choose your coverage.</h2>
+          <p class="proof anim">Three configurations. Every one scanned to your exact vehicle.</p>
+        </div>
+        <div class="table-scroll anim">
+          <table class="guide-table">
+            <caption class="visually-hidden">Coverage zones included in each configuration</caption>
+            <thead>
+              <tr>
+                <th scope="col">Coverage zone</th>
+                <th scope="col">Front Row</th>
+                <th scope="col">Front + Second Row</th>
+                <th scope="col">Full Set + SuperTrunk&trade;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Driver and passenger footwells</th><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+              <tr><th scope="row">Raised side and tunnel walls</th><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+              <tr><th scope="row">Door sill lips</th><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+              <tr><th scope="row">Second row and rear tunnel</th><td>&mdash;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+              <tr><th scope="row">Under-seat coverage</th><td>&mdash;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+              <tr><th scope="row">Cargo area and folded-seat backs</th><td>&mdash;</td><td>&mdash;</td><td class="yes">&#10003;</td></tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <th scope="row">Price (CAD)</th>
+                <td>$189.99</td>
+                <td>$279.99</td>
+                <td>$329.99</td>
+              </tr>
+              <tr>
+                <th scope="row"><span class="visually-hidden">Select</span></th>
+                <td><button class="btn btn-ghost" type="button" data-tier="front">Select</button></td>
+                <td><button class="btn btn-ghost" type="button" data-tier="full">Select</button></td>
+                <td><button class="btn btn-ghost" type="button" data-tier="fullst">Select</button></td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-bleed engineering statement -->
+    <section class="bleed" aria-labelledby="eng-title">
+      <div class="bleed-frame anim">
+        <div class="media-slot bleed-media" data-asset="bleedEngineering" role="img"
+             aria-label="Macro shot of the mat edge following the door sill, laser scan lines overlaid.">
+          <span class="slot-tag">placeholder &middot; bleedEngineering</span>
+        </div>
+        <div class="bleed-copy">
+          <h2 id="eng-title">Scanned, not approximated.</h2>
+          <p class="proof">3D laser scanning and TriForce&trade; multi-layer construction. Every edge follows your vehicle's original contours.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Compare -->
+    <section class="section" id="compare" aria-labelledby="compare-title">
+      <div class="container">
+        <div class="section-head">
+          <p class="eyebrow anim">Compare</p>
+          <h2 id="compare-title" class="anim">Most floor mats stop short.</h2>
+          <p class="proof anim">A direct comparison, line by line.</p>
+        </div>
+        <div class="table-scroll anim">
+          <table class="compare-table">
+            <caption class="visually-hidden">TuxMat compared with conventional floor mats</caption>
+            <thead>
+              <tr>
+                <th scope="col"></th>
+                <th scope="col" class="col-tux">TuxMat</th>
+                <th scope="col">Conventional mats</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><th scope="row">Fit</th><td class="col-tux">3D laser-scanned to your exact year, make, and model</td><td>Universal shape, trimmed by hand</td></tr>
+              <tr><th scope="row">Coverage</th><td class="col-tux">Up to 2.5x more<sup>*</sup></td><td>Floor only</td></tr>
+              <tr><th scope="row">Construction</th><td class="col-tux">TriForce&trade; multi-layer</td><td>Single layer</td></tr>
+              <tr><th scope="row">Retention</th><td class="col-tux">Locks into factory anchor points</td><td>Friction only</td></tr>
+              <tr><th scope="row">Cleaning</th><td class="col-tux">Quick-release clips, wipes clean</td><td>Removal varies</td></tr>
+              <tr><th scope="row">Warranty</th><td class="col-tux">Limited Lifetime Warranty</td><td>&mdash;</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="footnote anim">*Surface area comparison to 2025 Tesla Model Y OEM floor mats.</p>
+      </div>
+    </section>
+
+    <!-- Rating -->
+    <section class="section section-proof" id="reviews" aria-labelledby="rating-title">
+      <div class="container narrow">
+        <p class="eyebrow anim">Proof</p>
+        <p class="stat anim" aria-hidden="true">4.8&#9733;</p>
+        <h2 id="rating-title" class="anim">Rated 4.8&#9733; by thousands of drivers.<sup>**</sup></h2>
+        <p class="proof anim">Backed by our Limited Lifetime Warranty.</p>
+        <p class="footnote anim">**Based on 4,500+ Google Ratings.</p>
+      </div>
+    </section>
+
+    <!-- Close -->
+    <section class="section section-close" aria-labelledby="close-title">
+      <div class="container narrow">
+        <h2 id="close-title" class="display anim">Nothing Overlooked.<br>Because You Notice.</h2>
+        <div class="close-cta anim">
+          <button class="btn" type="button" data-atc>Add to Cart</button>
+        </div>
+        <p class="signoff anim">TuxMat. Designed to elevate.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <p>&copy; 2026 TuxMat Inc.</p>
+      <a href="https://www.tuxmat.ca/">tuxmat.ca</a>
+    </div>
+  </footer>
+
+  <!-- Floating add-to-cart bar -->
+  <div class="atc-bar glass" hidden>
+    <div class="atc-summary">
+      <span class="atc-product">Custom-Fit Floor Mats</span>
+      <span class="atc-detail" data-summary>Select your vehicle</span>
+    </div>
+    <div class="atc-buy">
+      <span class="atc-price" data-price>From $189.99</span>
+      <button class="btn" type="button" data-atc>Add to Cart</button>
+    </div>
+  </div>
+
+  <!-- Cart drawer -->
+  <div class="drawer-overlay" hidden></div>
+  <aside class="drawer glass" aria-label="Cart" hidden>
+    <header class="drawer-head">
+      <h2 class="drawer-title" data-drawer-title>Cart</h2>
+      <button class="drawer-close" type="button" aria-label="Close cart">&#10005;</button>
+    </header>
+
+    <div class="drawer-panel" data-panel="cart">
+      <ul class="cart-items"></ul>
+      <p class="cart-empty">Your cart is empty. Configure your mats above.</p>
+      <div class="cart-foot">
+        <p class="cart-subtotal">Subtotal <span data-subtotal>$0.00</span></p>
+        <p class="cart-note">Taxes and shipping calculated at checkout.</p>
+        <div class="express-row">
+          <button class="btn btn-express" type="button" data-express>Apple&nbsp;Pay</button>
+          <button class="btn btn-express" type="button" data-express>Shop&nbsp;Pay</button>
+        </div>
+        <button class="btn btn-block" type="button" data-checkout>Checkout</button>
+      </div>
+    </div>
+
+    <div class="drawer-panel" data-panel="checkout" hidden>
+      <p class="checkout-sub">One step. Contact, shipping, payment.</p>
+      <form class="checkout-form">
+        <input type="email" name="email" placeholder="Email" autocomplete="email" required>
+        <input type="text" name="name" placeholder="Full name" autocomplete="name" required>
+        <input type="text" name="address" placeholder="Address" autocomplete="street-address" required>
+        <div class="field-row">
+          <input type="text" name="city" placeholder="City" autocomplete="address-level2" required>
+          <input type="text" name="postal" placeholder="Postal code" autocomplete="postal-code" required>
+        </div>
+        <input type="text" name="card" placeholder="Card number" inputmode="numeric" autocomplete="cc-number" required>
+        <div class="field-row">
+          <input type="text" name="exp" placeholder="MM / YY" inputmode="numeric" autocomplete="cc-exp" required>
+          <input type="text" name="cvc" placeholder="CVC" inputmode="numeric" autocomplete="cc-csc" required>
+        </div>
+        <button class="btn btn-block" type="submit" data-pay>Pay $0.00</button>
+        <p class="demo-tag">demo &middot; no payment is processed</p>
+      </form>
+    </div>
+
+    <div class="drawer-panel drawer-success" data-panel="success" hidden>
+      <p class="success-mark" aria-hidden="true">&#10003;</p>
+      <h3>Order placed.</h3>
+      <p class="proof">A confirmation is on its way. Your mats are scanned, cut, and built for your exact vehicle.</p>
+      <button class="btn btn-ghost" type="button" data-continue>Continue browsing</button>
+      <p class="demo-tag">demo &middot; no payment was processed</p>
+    </div>
+  </aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
