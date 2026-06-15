@@ -1,0 +1,415 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TuxMat | Web Concepts</title>
+  <meta name="description" content="Eight web concepts for TuxMat: landing pages, a product page, two unexpected directions, a full storefront, a launch site, and a futuristic catalog. One standard.">
+  <meta name="theme-color" content="#0a0a0b">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;700&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #0a0a0b;
+      --black-2: #101012;
+      --ink: #ebe7df;
+      --muted: rgba(235, 231, 223, 0.6);
+      --faint: rgba(235, 231, 223, 0.36);
+      --gold: #c8a96e;
+      --gold-hi: #ddbe81;
+      --gold-dim: rgba(200, 169, 110, 0.45);
+      --line: rgba(235, 231, 223, 0.14);
+      --maxw: 1180px;
+      --pad: clamp(20px, 5vw, 64px);
+      --display: 'Space Grotesk', system-ui, sans-serif;
+      --mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+      --text: 'Inter', system-ui, -apple-system, sans-serif;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    [hidden] { display: none !important; }
+
+    html { scroll-behavior: smooth; }
+    @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+    body {
+      background: var(--black);
+      color: var(--ink);
+      font: 400 16px/1.65 var(--text);
+      -webkit-font-smoothing: antialiased;
+      overflow-x: clip;
+    }
+    ::selection { background: var(--gold); color: var(--black); }
+
+    .skip {
+      position: absolute; left: -9999px; top: 0; z-index: 100;
+      background: var(--gold); color: var(--black);
+      padding: 10px 16px; font-weight: 600; text-decoration: none;
+    }
+    .skip:focus { left: 0; }
+    :focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+
+    .visually-hidden {
+      position: absolute; width: 1px; height: 1px;
+      overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap;
+    }
+
+    h1, h2, h3 {
+      font-family: var(--display); font-weight: 700;
+      letter-spacing: -0.02em; line-height: 0.98; text-wrap: balance;
+    }
+
+    /* nav */
+    .nav {
+      position: fixed; inset: 0 0 auto 0; z-index: 60;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 14px var(--pad);
+      background: linear-gradient(rgba(10, 10, 11, 0.85), rgba(10, 10, 11, 0.2));
+      backdrop-filter: blur(10px); -webkit-backdrop-filter: blur(10px);
+    }
+    .wordmark {
+      font-family: var(--display); font-weight: 700; font-size: 18px;
+      letter-spacing: 0.16em; text-transform: uppercase;
+      color: var(--ink); text-decoration: none;
+    }
+    .wordmark sup { font-size: 0.5em; letter-spacing: 0; }
+    .nav-doc { font: 500 10px/1 var(--mono); letter-spacing: 0.14em; color: var(--faint); }
+
+    /* hero */
+    .hero {
+      min-height: 92svh;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      text-align: center;
+      padding: 140px var(--pad) 60px;
+    }
+    .eyebrow {
+      font: 500 11px/1 var(--mono); letter-spacing: 0.22em; text-transform: uppercase;
+      color: var(--gold); margin-bottom: 26px;
+    }
+    .hero h1 {
+      font-size: clamp(3rem, 9.5vw, 7rem); text-transform: uppercase;
+    }
+    .hero h1 .gold { color: var(--gold); }
+    .lede { font-size: clamp(1.05rem, 1.6vw, 1.25rem); color: var(--muted); max-width: 52ch; margin-top: 26px; }
+    .hero-thread {
+      width: 2px; height: clamp(70px, 11vh, 120px); margin-top: clamp(34px, 6vh, 60px);
+      background: var(--gold); box-shadow: 0 0 8px rgba(200, 169, 110, 0.55);
+    }
+
+    /* gallery */
+    .gallery { max-width: var(--maxw); margin-inline: auto; padding: clamp(40px, 7vh, 80px) var(--pad) clamp(70px, 10vh, 120px); }
+    .gallery-head { margin-bottom: clamp(36px, 6vh, 60px); }
+    .gallery-head .eyebrow { margin-bottom: 16px; }
+    .gallery-head h2 { font-size: clamp(1.8rem, 4.4vw, 3rem); }
+    .gallery-head p { color: var(--muted); max-width: 56ch; margin-top: 14px; }
+
+    .cards { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(14px, 2vw, 24px); }
+
+    .card {
+      display: flex; flex-direction: column;
+      border: 1px solid var(--line); background: var(--black-2);
+      text-decoration: none; color: inherit;
+      transition: border-color 0.25s ease, transform 0.25s ease;
+    }
+    .card:hover { border-color: var(--gold); transform: translateY(-3px); }
+    .card:focus-visible { border-color: var(--gold); }
+
+    .thumb { position: relative; aspect-ratio: 16 / 10; overflow: hidden; border-bottom: 1px solid var(--line); }
+    .thumb svg { display: block; width: 100%; height: 100%; }
+
+    .card-body { padding: 22px 24px 26px; display: flex; flex-direction: column; flex: 1; }
+    .card-top { display: flex; align-items: baseline; gap: 12px; }
+    .card-no { font: 500 12px var(--mono); color: var(--gold); }
+    .card-name { font-size: 1.4rem; }
+    .card-desc { color: var(--muted); font-size: 14.5px; margin-top: 12px; flex: 1; }
+    .card-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 18px; }
+    .tag {
+      font: 500 10px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase;
+      color: var(--faint); border: 1px solid var(--line); padding: 6px 9px;
+    }
+    .card-open {
+      margin-top: 20px;
+      font: 600 11px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--gold);
+      display: inline-flex; align-items: center; gap: 8px;
+    }
+    .card-open .arrow { transition: transform 0.25s ease; }
+    .card:hover .card-open .arrow { transform: translateX(5px); }
+
+    .card-wide { grid-column: 1 / -1; }
+    .card-wide .thumb { aspect-ratio: 32 / 9; }
+
+    /* run note */
+    .runnote {
+      max-width: var(--maxw); margin-inline: auto;
+      border-top: 1px solid var(--line);
+      padding: clamp(36px, 6vh, 60px) var(--pad);
+      display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 4vw, 48px);
+    }
+    .runnote h3 { font-size: 1.2rem; }
+    .runnote p { color: var(--muted); font-size: 14.5px; margin-top: 12px; }
+    .runnote code {
+      font: 500 12px var(--mono); color: var(--gold);
+      background: var(--black-2); border: 1px solid var(--line);
+      padding: 2px 6px;
+    }
+    .runnote ul { list-style: none; display: grid; gap: 10px; margin-top: 8px; }
+    .runnote li { font-size: 14px; color: var(--muted); padding-left: 16px; position: relative; }
+    .runnote li::before { content: '\2014'; position: absolute; left: 0; color: var(--gold); }
+
+    /* footer */
+    .footer { border-top: 1px solid var(--line); }
+    .footer-inner {
+      max-width: var(--maxw); margin-inline: auto;
+      display: flex; justify-content: space-between; gap: 16px;
+      padding: 26px var(--pad);
+      font: 500 11px/1.5 var(--mono); letter-spacing: 0.08em; color: var(--faint);
+    }
+    .footer a { color: var(--muted); text-decoration: none; }
+    .footer a:hover { color: var(--ink); }
+
+    /* thumbnail strokes that draw on scroll */
+    .tdraw { fill: none; stroke: var(--gold); stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+    .tlabel { font: 500 9px var(--mono); letter-spacing: 0.1em; fill: var(--faint); }
+
+    @media (max-width: 760px) {
+      .cards { grid-template-columns: 1fr; }
+      .card-wide { grid-column: auto; }
+      .card-wide .thumb { aspect-ratio: 16 / 10; }
+      .runnote { grid-template-columns: 1fr; }
+      .nav-doc { display: none; }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip" href="#concepts">Skip to concepts</a>
+
+  <header class="nav">
+    <a class="wordmark" href="#top">TuxMat<sup>&reg;</sup></a>
+    <span class="nav-doc">Web concepts &middot; TM-26</span>
+  </header>
+
+  <main id="top">
+
+    <section class="hero">
+      <p class="eyebrow anim-hero">Eight concepts &middot; one standard</p>
+      <h1 class="anim-hero">Nothing<br>Overlooked<span class="gold">.</span></h1>
+      <p class="lede anim-hero">A set of web experiences for TuxMat, from the faithful to the unexpected. Built, verified, and ready to walk through. Pick a direction.</p>
+      <div class="hero-thread" aria-hidden="true"></div>
+    </section>
+
+    <section class="gallery" id="concepts" aria-labelledby="concepts-title">
+      <div class="gallery-head">
+        <p class="eyebrow">The concepts</p>
+        <h2 id="concepts-title">Eight builds. One brand.</h2>
+        <p>Five concept prototypes and three full multi-page sites, each modeled on a different reference. Every one follows the same rules: approved claims, no em-dashes, and real TuxMat photography where it counts.</p>
+      </div>
+
+      <div class="cards">
+
+        <a class="card" href="./landing-original/index.html" aria-label="Open concept 01, the landing page">
+          <span class="thumb">
+            <svg viewBox="0 0 320 200" role="img" aria-hidden="true">
+              <rect width="320" height="200" fill="#0e0f12"/>
+              <radialGradient id="g1" cx="74%" cy="16%" r="60%">
+                <stop offset="0%" stop-color="rgba(200,169,110,0.28)"/>
+                <stop offset="100%" stop-color="rgba(200,169,110,0)"/>
+              </radialGradient>
+              <rect width="320" height="200" fill="url(#g1)"/>
+              <path class="tdraw" data-draw d="M40 96 L150 96" stroke-width="3"/>
+              <path class="tdraw" data-draw d="M40 116 L120 116" opacity="0.5"/>
+              <rect class="tdraw" data-draw x="40" y="138" width="92" height="22" rx="2"/>
+              <text class="tlabel" x="40" y="58">LANDING</text>
+            </svg>
+          </span>
+          <div class="card-body">
+            <div class="card-top"><span class="card-no">01</span><h3 class="card-name">The Landing Page</h3></div>
+            <p class="card-desc">The faithful premium build. Dark, cinematic, GSAP scroll choreography with a CSS-lit hero and a self-converging TriForce figure.</p>
+            <div class="card-tags"><span class="tag">Landing</span><span class="tag">GSAP</span><span class="tag">Dark</span></div>
+            <span class="card-open">Open <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <a class="card" href="./landing-threejs/index.html" aria-label="Open concept 02, the Three.js variant">
+          <span class="thumb">
+            <svg viewBox="0 0 320 200" role="img" aria-hidden="true">
+              <rect width="320" height="200" fill="#0e0f12"/>
+              <radialGradient id="g2" cx="68%" cy="22%" r="62%">
+                <stop offset="0%" stop-color="rgba(200,169,110,0.22)"/>
+                <stop offset="100%" stop-color="rgba(200,169,110,0)"/>
+              </radialGradient>
+              <rect width="320" height="200" fill="url(#g2)"/>
+              <path class="tdraw" data-draw d="M104 78 L216 78 L250 132 L138 132 Z"/>
+              <path class="tdraw" data-draw d="M122 96 L198 96 L222 124 L146 124 Z" opacity="0.55"/>
+              <circle cx="150" cy="150" r="1.6" fill="#c8a96e"/>
+              <circle cx="176" cy="156" r="1.6" fill="#c8a96e"/>
+              <circle cx="202" cy="150" r="1.6" fill="#c8a96e"/>
+              <text class="tlabel" x="40" y="48">LIVE 3D</text>
+            </svg>
+          </span>
+          <div class="card-body">
+            <div class="card-top"><span class="card-no">02</span><h3 class="card-name">The Three.js Hero</h3></div>
+            <p class="card-desc">Same page, hero replaced with a live-rendered mat tray under one light, swept by a laser scan that reveals a point cloud.</p>
+            <div class="card-tags"><span class="tag">Landing</span><span class="tag">Three.js</span><span class="tag">WebGL</span></div>
+            <span class="card-open">Open <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <a class="card" href="./pdp-cart/index.html" aria-label="Open concept 03, the product page and cart">
+          <span class="thumb">
+            <svg viewBox="0 0 320 200" role="img" aria-hidden="true">
+              <rect width="320" height="200" fill="#0e0f12"/>
+              <radialGradient id="g3" cx="50%" cy="14%" r="60%">
+                <stop offset="0%" stop-color="rgba(200,169,110,0.18)"/>
+                <stop offset="100%" stop-color="rgba(200,169,110,0)"/>
+              </radialGradient>
+              <rect width="320" height="200" fill="url(#g3)"/>
+              <rect class="tdraw" data-draw x="40" y="52" width="110" height="96" rx="4"/>
+              <path class="tdraw" data-draw d="M172 60 L260 60" opacity="0.7"/>
+              <path class="tdraw" data-draw d="M172 80 L240 80" opacity="0.5"/>
+              <rect class="tdraw" data-draw x="172" y="98" width="88" height="20" rx="2"/>
+              <rect class="tdraw" data-draw x="96" y="166" width="128" height="20" rx="10"/>
+              <text class="tlabel" x="40" y="36">PRODUCT PAGE</text>
+            </svg>
+          </span>
+          <div class="card-body">
+            <div class="card-top"><span class="card-no">03</span><h3 class="card-name">The Product Page</h3></div>
+            <p class="card-desc">Apple-register PDP and cart workflow: sticky local nav, floating add-to-cart, coverage and comparison tables, one-step checkout.</p>
+            <div class="card-tags"><span class="tag">PDP</span><span class="tag">Cart</span><span class="tag">Checkout</span></div>
+            <span class="card-open">Open <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <a class="card" href="./dossier/index.html" aria-label="Open concept 04, the engineering dossier">
+          <span class="thumb">
+            <svg viewBox="0 0 320 200" role="img" aria-hidden="true">
+              <rect width="320" height="200" fill="#f6f3ed"/>
+              <rect x="30" y="26" width="260" height="148" fill="none" stroke="#17181b" stroke-width="2"/>
+              <path d="M30 56 L290 56" stroke="#17181b" stroke-width="1"/>
+              <path d="M30 150 L290 150" stroke="#17181b" stroke-width="1"/>
+              <path d="M118 56 L118 26 M202 56 L202 26" stroke="#17181b" stroke-width="1"/>
+              <path class="tdraw" data-draw d="M160 72 C 110 72, 86 92, 86 112 C 86 132, 120 142, 160 142 C 200 142, 234 132, 234 112 C 234 92, 210 72, 160 72 Z" stroke="#17181b"/>
+              <text class="tlabel" x="40" y="46" fill="rgba(23,24,27,0.5)">SHEET 01 / 06</text>
+            </svg>
+          </span>
+          <div class="card-body">
+            <div class="card-top"><span class="card-no">04</span><h3 class="card-name">The Engineering Dossier</h3></div>
+            <p class="card-desc">The inversion. Landing, product, and order merged into a paper-and-ink document whose figures draw themselves. Zero photography.</p>
+            <div class="card-tags"><span class="tag">Unexpected</span><span class="tag">SVG draw</span><span class="tag">Light</span></div>
+            <span class="card-open">Open <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <a class="card card-wide" href="./goldline/index.html" aria-label="Open concept 05, the Gold Line">
+          <span class="thumb">
+            <svg viewBox="0 0 640 180" role="img" aria-hidden="true">
+              <rect width="640" height="180" fill="#0a0a0b"/>
+              <path class="tdraw" data-draw d="M320 8 L320 30 C 200 30, 150 44, 150 64 C 150 84, 240 92, 320 92 C 400 92, 490 84, 490 64 C 490 44, 440 30, 320 30 L320 52 C 250 52, 214 62, 214 76 C 214 90, 270 96, 320 96 L320 172" style="filter: drop-shadow(0 0 6px rgba(200,169,110,0.5))"/>
+              <text class="tlabel" x="36" y="40">THE GOLD LINE</text>
+            </svg>
+          </span>
+          <div class="card-body">
+            <div class="card-top"><span class="card-no">05</span><h3 class="card-name">The Gold Line</h3></div>
+            <p class="card-desc">Black throughout, bold brand gold. One unbroken line of light draws the whole story on scroll, with solid-gold statement panels and count-up proof. Zero photography.</p>
+            <div class="card-tags"><span class="tag">Unexpected</span><span class="tag">Black + Gold</span><span class="tag">SVG draw</span><span class="tag">Full flow</span></div>
+            <span class="card-open">Open <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <a class="card card-wide" href="./store-casper/index.html" aria-label="Open concept 06, the storefront">
+          <span class="thumb" style="background:#0e0f12 url('./store-casper/assets/hero-home.jpg') center/cover no-repeat"></span>
+          <div class="card-body">
+            <div class="card-top"><span class="card-no">06</span><h3 class="card-name">The Storefront</h3></div>
+            <p class="card-desc">A full three-page store in a luxury-minimal register: warm light ground, jewel-tone product sections, an interactive before/after slider, click-to-zoom galleries, video hero and editorial, and a one-step cart. Built on real TuxMat photography and video.</p>
+            <div class="card-tags"><span class="tag">Storefront</span><span class="tag">Video</span><span class="tag">Cart</span><span class="tag">3 pages</span></div>
+            <span class="card-open">Open <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <a class="card" href="./launch-radian/index.html" aria-label="Open concept 07, the launch site">
+          <span class="thumb" style="background:#0e0f12 url('./launch-radian/assets/hero-poster.jpg') center/cover no-repeat"></span>
+          <div class="card-body">
+            <div class="card-top"><span class="card-no">07</span><h3 class="card-name">The Launch Site</h3></div>
+            <p class="card-desc">A product-launch experience: electric-gold on black, a full-viewport video hero, a seven-feature carousel, brand narrative with coordinates, and a multi-step reserve configurator with a refundable deposit.</p>
+            <div class="card-tags"><span class="tag">Launch</span><span class="tag">Video</span><span class="tag">Configurator</span></div>
+            <span class="card-open">Open <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+        <a class="card" href="./catalog-x8/index.html" aria-label="Open concept 08, the futuristic catalog">
+          <span class="thumb" style="background:#0e0f12 url('./catalog-x8/assets/g4.jpg') center/cover no-repeat"></span>
+          <div class="card-body">
+            <div class="card-top"><span class="card-no">08</span><h3 class="card-name">The Futuristic Catalog</h3></div>
+            <p class="card-desc">Monochrome titanium, all-caps and minimal: a hamburger menu reveal, a video hero with collection tabs, a quick-add grid, and a URL-driven product page with 001-004 model tabs.</p>
+            <div class="card-tags"><span class="tag">Catalog</span><span class="tag">Model tabs</span><span class="tag">Quick add</span></div>
+            <span class="card-open">Open <span class="arrow">&rarr;</span></span>
+          </div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="runnote" aria-labelledby="run-title">
+      <div>
+        <h3 id="run-title">Running these</h3>
+        <p>From this folder, serve the root and open the gallery:</p>
+        <p><code>python3 -m http.server 4178</code></p>
+        <p>Then open <code>localhost:4178</code> and click into any concept. To run one on its own, serve its folder instead. No build step.</p>
+      </div>
+      <div>
+        <h3>What is shared</h3>
+        <ul>
+          <li>Approved claims only, footnoted in place</li>
+          <li>Full reduced-motion fallback, append <code>?static</code></li>
+          <li>Sample pricing and vehicle data, for the live Shopify catalog</li>
+          <li>The build prompts live in <code>prompts/</code></li>
+        </ul>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <span>&copy; 2026 TuxMat Inc. &middot; Internal concept kit</span>
+      <a href="https://www.tuxmat.ca/">tuxmat.ca</a>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script>
+    const reducedMotion =
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches ||
+      new URLSearchParams(window.location.search).has('static');
+
+    if (!reducedMotion && window.gsap && window.ScrollTrigger) {
+      gsap.registerPlugin(ScrollTrigger);
+      const ease = 'power3.out';
+
+      gsap.from('.nav', { y: -14, opacity: 0, duration: 0.8, ease, delay: 0.1 });
+      gsap.from('.anim-hero', { y: 26, opacity: 0, duration: 1, ease, stagger: 0.12, delay: 0.2 });
+      gsap.from('.hero-thread', { scaleY: 0, transformOrigin: 'top center', duration: 1, ease: 'power2.inOut', delay: 1 });
+
+      gsap.utils.toArray('.card').forEach((card) => {
+        gsap.from(card, {
+          y: 28, opacity: 0, duration: 0.8, ease,
+          scrollTrigger: { trigger: card, start: 'top 88%' },
+        });
+        // each thumbnail's strokes draw themselves as the card enters
+        const paths = card.querySelectorAll('[data-draw]');
+        paths.forEach((p, i) => {
+          const len = p.getTotalLength();
+          p.style.strokeDasharray = len;
+          p.style.strokeDashoffset = len;
+          gsap.to(p, {
+            strokeDashoffset: 0, duration: 1.1, ease, delay: 0.15 + i * 0.12,
+            scrollTrigger: { trigger: card, start: 'top 84%' },
+          });
+        });
+      });
+    }
+  </script>
+</body>
+</html>
