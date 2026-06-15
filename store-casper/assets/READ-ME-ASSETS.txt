@@ -1,0 +1,11 @@
+This folder already contains real TuxMat imagery (pulled from
+tuxmat.ca and cropped to fit each spot on the site).
+
+TO REPLACE AN IMAGE: overwrite the file with the same name, then
+refresh the page. The full filename list is in ../README.md.
+
+TO ADD VIDEO: drop a file named exactly:
+    hero-home.mp4              (homepage hero)
+    editorial-standard.mp4     (editorial band)
+into this folder. It will autoplay in place. Until then, the matching
+photo (hero-home.jpg / editorial-standard.jpg) is shown.
