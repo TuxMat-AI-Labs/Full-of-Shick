@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TuxMat | Reserve Your Set</title>
+  <meta name="description" content="Configure and reserve your custom-fit TuxMat. Region, vehicle, coverage, finish.">
+  <meta name="theme-color" content="#0b0b0c">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body data-page="reserve">
+  <a class="skip" href="#cfg">Skip to configurator</a>
+
+  <header class="header solid" data-header>
+    <a class="logo" href="index.html">Tux<b>Mat</b></a>
+    <nav class="nav" aria-label="Primary">
+      <a href="index.html#features">Overview</a>
+      <a href="index.html#engineering">Engineering</a>
+      <a href="index.html">Home</a>
+    </nav>
+    <button class="menu-toggle" type="button" data-menu-open>Menu</button>
+  </header>
+
+  <main id="cfg" class="reserve-wrap">
+
+    <!-- Gallery -->
+    <div class="reserve-gallery" data-rgallery>
+      <div class="rg-slide active"><img data-img="usecase-1.jpg" alt="Installed interior"></div>
+      <div class="rg-slide"><img data-img="eng-1.jpg" alt="3D laser scanning"></div>
+      <div class="rg-slide"><img data-img="feat-3.jpg" alt="Retention detail"></div>
+      <div class="rg-slide"><img data-img="usecase-2.jpg" alt="Cargo coverage"></div>
+      <div class="rg-dots" data-rg-dots></div>
+    </div>
+
+    <!-- Panel -->
+    <div class="reserve-panel">
+      <div class="steps-ind" data-pips></div>
+
+      <!-- Step 1: region -->
+      <section class="step active" data-step="0">
+        <p class="step-no">Step 01 / 05</p>
+        <h2>Where will you ride?</h2>
+        <div class="opt-list" data-region>
+          <div class="opt" data-val="ca" data-sub="First release · reservations open"><div><div class="opt-name">Canada</div><div class="opt-sub">First release. Reservations open.</div></div><span class="opt-price">&#10003;</span></div>
+          <div class="opt" data-val="us" data-sub="Second release · reservations open"><div><div class="opt-name">United States</div><div class="opt-sub">Second release. Reservations open.</div></div><span class="opt-price">&#10003;</span></div>
+          <div class="opt" data-val="row" data-sub="Interest list only"><div><div class="opt-name">Rest of world</div><div class="opt-sub">Interest list. No deposit required.</div></div><span class="opt-price">List</span></div>
+        </div>
+        <div class="step-foot"><span class="muted foot-note">No payment at this step.</span><button class="btn" type="button" data-next disabled>Continue</button></div>
+      </section>
+
+      <!-- Step 2: vehicle -->
+      <section class="step" data-step="1">
+        <p class="step-no">Step 02 / 05</p>
+        <h2>Your vehicle.</h2>
+        <p class="muted" style="margin-bottom:18px">Every set is scanned to an exact year, make, and model.</p>
+        <div class="vehicle-row">
+          <select name="year" aria-label="Year"><option value="" disabled selected>Year</option></select>
+          <select name="make" aria-label="Make"><option value="" disabled selected>Make</option></select>
+          <select name="model" aria-label="Model" disabled><option value="" disabled selected>Model</option></select>
+        </div>
+        <div class="step-foot"><button class="btn btn-ghost" type="button" data-back>Back</button><button class="btn" type="button" data-next disabled>Continue</button></div>
+      </section>
+
+      <!-- Step 3: coverage -->
+      <section class="step" data-step="2">
+        <p class="step-no">Step 03 / 05</p>
+        <h2>Coverage.</h2>
+        <div class="opt-list" data-coverage>
+          <div class="opt" data-val="front" data-price="189.99"><div><div class="opt-name">Front Row</div><div class="opt-sub">Driver and passenger footwells, walls, sills.</div></div><span class="opt-price">$189.99</span></div>
+          <div class="opt sel" data-val="full" data-price="279.99"><div><div class="opt-name">Front + Second Row</div><div class="opt-sub">Adds the second row and under-seat coverage.</div></div><span class="opt-price">$279.99</span></div>
+          <div class="opt" data-val="fullst" data-price="329.99"><div><div class="opt-name">Full Set + SuperTrunk&trade;</div><div class="opt-sub">Adds the cargo area and folded-seat backs.</div></div><span class="opt-price">$329.99</span></div>
+        </div>
+        <div class="step-foot"><button class="btn btn-ghost" type="button" data-back>Back</button><button class="btn" type="button" data-next>Continue</button></div>
+      </section>
+
+      <!-- Step 4: finish -->
+      <section class="step" data-step="3">
+        <p class="step-no">Step 04 / 05</p>
+        <h2>Finish.</h2>
+        <div class="swatches" data-finish>
+          <div class="swatch sel" data-val="Black"><span class="dot black"></span>Black</div>
+          <div class="swatch" data-val="Two-Tone Gray"><span class="dot gray"></span>Two-Tone Gray</div>
+        </div>
+        <div class="step-foot"><button class="btn btn-ghost" type="button" data-back>Back</button><button class="btn" type="button" data-next>Review</button></div>
+      </section>
+
+      <!-- Step 5: reserve -->
+      <section class="step" data-step="4">
+        <p class="step-no">Step 05 / 05</p>
+        <h2>Reserve.</h2>
+        <div data-summary></div>
+        <div class="reserve-total"><span class="muted">Refundable deposit today</span><span class="amt" data-deposit>$99</span></div>
+        <p class="deposit-note" data-deposit-note>Your $99 deposit reserves your place in line. The balance is charged before your set ships. Fully refundable.</p>
+        <form data-reserve-form style="margin-top:18px">
+          <input class="field" type="text" name="name" placeholder="Full name" autocomplete="name" required>
+          <input class="field" type="email" name="email" placeholder="Email" autocomplete="email" required>
+          <label class="checkrow"><input type="checkbox" required> I accept the terms and the privacy policy.</label>
+          <button class="btn btn-block" type="submit" style="width:100%; justify-content:center; margin-top:10px" data-reserve-submit>Reserve your TuxMat &middot; <span data-deposit-btn>$99</span></button>
+        </form>
+        <div class="step-foot" style="border:0; padding-top:8px; margin-top:8px"><button class="btn btn-ghost" type="button" data-back>Back</button><span class="foot-note muted">Limited Lifetime Warranty included.</span></div>
+      </section>
+
+      <!-- Confirmation -->
+      <section class="step" data-step="done">
+        <div class="confirm">
+          <div class="seal">&#10003;</div>
+          <h2>You're on the line.</h2>
+          <p class="muted" data-confirm-line style="margin:14px auto 0; max-width:38ch">A confirmation is on its way.</p>
+          <p class="deposit-note">Nothing Overlooked. Because You Notice.</p>
+          <a class="btn" href="index.html" style="margin-top:22px">Back to home</a>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
