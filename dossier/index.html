@@ -1,0 +1,297 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TuxMat | The Engineering Dossier</title>
+  <meta name="description" content="Custom-fit floor mats, presented as the engineering document they come from. Drawn from 3D laser scans of your exact vehicle.">
+  <meta name="theme-color" content="#f6f3ed">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+
+  <header class="nav">
+    <a class="wordmark" href="#s1">TuxMat<sup>&reg;</sup></a>
+    <span class="nav-doc">Engineering dossier &middot; TM-26-001</span>
+    <button class="ticket-btn" type="button" aria-label="Open order ticket">
+      Order ticket <span class="ticket-badge" hidden>0</span>
+    </button>
+  </header>
+
+  <main id="main">
+
+    <!-- SHEET 01 · Title block -->
+    <section class="sheet" id="s1" aria-labelledby="t1">
+      <div class="frame titleblock anim-hero">
+        <div class="tb-row tb-top">
+          <span>TuxMat&reg; Engineering Dossier</span>
+          <span>DWG NO. TM-26-001</span>
+          <span>SHEET 01 / 06</span>
+        </div>
+        <div class="tb-main">
+          <h1 id="t1">Nothing Overlooked.<br><em>Because You Notice.</em></h1>
+          <p class="lede">Custom-fit floor mats, presented as the document they come from. Drawn from 3D laser scans of your exact vehicle.</p>
+          <a class="btn" href="#s6">Begin your order</a>
+        </div>
+        <div class="tb-row tb-bottom">
+          <span>DRAWN BY: TUXMAT ENGINEERING</span>
+          <span>DATE: 2026-06-11</span>
+          <span>SCALE: 1:1</span>
+          <span>MATERIAL: TRIFORCE&trade; MULTI-LAYER</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHEET 02 · The problem -->
+    <section class="sheet" id="s2" aria-labelledby="t2">
+      <p class="sheetlabel anim">SHEET 02 / 06 &middot; PLAN VIEW &middot; THE PROBLEM</p>
+      <div class="duo">
+        <div class="duo-copy">
+          <h2 id="t2" class="anim">Most floor mats stop short.</h2>
+          <p class="proof anim">Conventional coverage ends at the floor. The footwell sides, door sills, and the carpet beneath the seats stay exposed.</p>
+        </div>
+        <figure class="drawing anim" aria-label="Plan view drawing comparing a conventional mat footprint to TuxMat coverage extending up the footwell sides.">
+          <svg viewBox="0 0 640 420" role="img" aria-hidden="true">
+            <defs>
+              <pattern id="hatch" patternUnits="userSpaceOnUse" width="7" height="7">
+                <path d="M0 7L7 0" stroke="currentColor" stroke-width="0.6" opacity="0.45"/>
+              </pattern>
+            </defs>
+            <!-- footwell boundary -->
+            <path data-draw d="M90 70 C 200 38, 440 38, 552 72 C 586 160, 586 260, 550 348 C 440 384, 200 384, 92 350 C 56 260, 56 160, 90 70 Z"
+                  fill="none" stroke="currentColor" stroke-width="2"/>
+            <!-- TuxMat coverage zone -->
+            <path data-draw d="M122 100 C 215 74, 425 74, 520 102 C 548 175, 548 247, 518 318 C 425 346, 215 346, 124 320 C 94 247, 94 175, 122 100 Z"
+                  fill="url(#hatch)" stroke="currentColor" stroke-width="1.4" stroke-dasharray="none"/>
+            <!-- conventional mat footprint -->
+            <path data-draw d="M205 215 L 435 215 L 425 330 L 215 330 Z"
+                  fill="none" stroke="currentColor" stroke-width="1.6"/>
+            <!-- dimension: conventional -->
+            <path data-draw d="M205 352 L 435 352 M205 346 L205 358 M435 346 L435 358" fill="none" stroke="currentColor" stroke-width="1"/>
+            <!-- dimension: tuxmat reach -->
+            <path data-draw d="M572 102 L 572 318 M566 102 L578 102 M566 318 L578 318" fill="none" stroke="currentColor" stroke-width="1"/>
+            <text class="svg-label" x="320" y="372" text-anchor="middle">CONVENTIONAL · FLOOR ONLY</text>
+            <text class="svg-label" x="586" y="214" transform="rotate(90 586 214)" text-anchor="middle">TUXMAT · UP THE SIDES</text>
+            <text class="svg-label" x="320" y="135" text-anchor="middle">COVERAGE ZONE · UP TO 2.5X MORE*</text>
+          </svg>
+          <figcaption class="figcap">FIG. 02-A &middot; *Surface area comparison to 2025 Tesla Model Y OEM floor mats.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- SHEET 03 · The scan -->
+    <section class="sheet" id="s3" aria-labelledby="t3">
+      <p class="sheetlabel anim">SHEET 03 / 06 &middot; CONTOUR SURVEY &middot; THE SCAN</p>
+      <h2 id="t3" class="anim">Scanned, not approximated.</h2>
+      <p class="proof anim">Developed using 3D laser scanning. Every contour of the footwell, recorded.</p>
+      <figure class="drawing wide anim" aria-label="Topographic contour drawing of a vehicle footwell with a laser scan line crossing it.">
+        <svg viewBox="0 0 800 380" role="img" aria-hidden="true">
+          <path data-draw d="M110 190 C 130 92, 320 52, 480 78 C 640 102, 716 178, 678 262 C 636 330, 420 352, 270 330 C 150 310, 92 268, 110 190 Z" fill="none" stroke="currentColor" stroke-width="1.7"/>
+          <path data-draw d="M160 195 C 178 118, 330 86, 466 106 C 600 126, 660 184, 630 250 C 594 304, 414 320, 288 302 C 192 286, 146 254, 160 195 Z" fill="none" stroke="currentColor" stroke-width="1.3" opacity="0.85"/>
+          <path data-draw d="M210 198 C 226 142, 342 118, 452 134 C 558 148, 606 192, 582 240 C 552 282, 408 292, 306 278 C 232 266, 198 242, 210 198 Z" fill="none" stroke="currentColor" stroke-width="1.1" opacity="0.7"/>
+          <path data-draw d="M262 202 C 274 164, 356 148, 438 160 C 516 170, 552 200, 534 232 C 512 260, 402 266, 326 256 C 272 248, 252 230, 262 202 Z" fill="none" stroke="currentColor" stroke-width="0.9" opacity="0.55"/>
+          <path data-draw d="M316 206 C 324 184, 372 176, 424 182 C 474 188, 496 206, 484 224 C 470 240, 396 242, 348 236 C 318 230, 310 220, 316 206 Z" fill="none" stroke="currentColor" stroke-width="0.8" opacity="0.4"/>
+          <g class="scanline" transform="translate(440 0)">
+            <path d="M0 40 L0 340" stroke="currentColor" stroke-width="1.2"/>
+            <path d="M-5 40 L5 40 M-5 340 L5 340" stroke="currentColor" stroke-width="1.2"/>
+            <text class="svg-label" x="10" y="52">SCAN</text>
+          </g>
+          <text class="svg-label" x="112" y="360">DATUM: FACTORY FLOOR PAN</text>
+          <text class="svg-label" x="688" y="360" text-anchor="end">CONTOUR INTERVAL: 4 MM</text>
+        </svg>
+        <figcaption class="figcap">FIG. 03-A &middot; FOOTWELL CONTOUR SURVEY, DRIVER SIDE</figcaption>
+      </figure>
+    </section>
+
+    <!-- SHEET 04 · Cross-section -->
+    <section class="sheet" id="s4" aria-labelledby="t4">
+      <p class="sheetlabel anim">SHEET 04 / 06 &middot; SECTION A-A &middot; CONSTRUCTION</p>
+      <div class="duo">
+        <figure class="drawing anim" aria-label="Cross-section drawing of TriForce multi-layer construction showing three labeled layers.">
+          <svg viewBox="0 0 640 300" role="img" aria-hidden="true">
+            <defs>
+              <pattern id="hatchA" patternUnits="userSpaceOnUse" width="6" height="6">
+                <path d="M0 6L6 0" stroke="currentColor" stroke-width="0.7" opacity="0.55"/>
+              </pattern>
+              <pattern id="hatchB" patternUnits="userSpaceOnUse" width="8" height="8">
+                <path d="M0 0L8 8" stroke="currentColor" stroke-width="0.7" opacity="0.4"/>
+              </pattern>
+              <pattern id="hatchC" patternUnits="userSpaceOnUse" width="5" height="5">
+                <circle cx="2.5" cy="2.5" r="0.6" fill="currentColor" opacity="0.4"/>
+              </pattern>
+            </defs>
+            <path data-draw d="M80 90 C 200 70, 440 70, 560 90 L 560 122 C 440 102, 200 102, 80 122 Z" fill="url(#hatchA)" stroke="currentColor" stroke-width="1.6"/>
+            <path data-draw d="M80 130 C 200 110, 440 110, 560 130 L 560 178 C 440 158, 200 158, 80 178 Z" fill="url(#hatchB)" stroke="currentColor" stroke-width="1.6"/>
+            <path data-draw d="M80 186 C 200 166, 440 166, 560 186 L 560 212 C 440 192, 200 192, 80 212 Z" fill="url(#hatchC)" stroke="currentColor" stroke-width="1.6"/>
+            <path data-draw d="M560 96 L 600 60 M560 150 L 600 150 M560 196 L 600 236" fill="none" stroke="currentColor" stroke-width="0.9"/>
+            <text class="svg-label" x="604" y="58">LAYER 01 · SURFACE</text>
+            <text class="svg-label" x="604" y="154">LAYER 02 · CORE</text>
+            <text class="svg-label" x="604" y="244">LAYER 03 · BASE</text>
+            <path data-draw d="M58 90 L 58 212 M52 90 L64 90 M52 212 L64 212" fill="none" stroke="currentColor" stroke-width="1"/>
+            <text class="svg-label" x="44" y="156" transform="rotate(-90 44 156)" text-anchor="middle">SECTION A-A</text>
+          </svg>
+          <figcaption class="figcap">FIG. 04-A &middot; TRIFORCE&trade; MULTI-LAYER CONSTRUCTION</figcaption>
+        </figure>
+        <div class="duo-copy">
+          <h2 id="t4" class="anim">Three layers. One form.</h2>
+          <p class="proof anim">TriForce&trade; multi-layer construction maintains its structure over time. The drawing is the warranty's argument.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SHEET 05 · Specification -->
+    <section class="sheet" id="s5" aria-labelledby="t5">
+      <p class="sheetlabel anim">SHEET 05 / 06 &middot; SPECIFICATION &middot; COVERAGE</p>
+      <h2 id="t5" class="anim">Choose your coverage.</h2>
+      <p class="proof anim">Up to 2.5x more coverage than conventional mats.<sup>*</sup> Three configurations, one standard.</p>
+      <div class="table-scroll anim">
+        <table class="spec-table">
+          <caption class="visually-hidden">Coverage zones included in each configuration</caption>
+          <thead>
+            <tr>
+              <th scope="col">COVERAGE ZONE</th>
+              <th scope="col">FRONT ROW</th>
+              <th scope="col">FRONT + SECOND ROW</th>
+              <th scope="col">FULL SET + SUPERTRUNK&trade;</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><th scope="row">Driver and passenger footwells</th><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+            <tr><th scope="row">Raised side and tunnel walls</th><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+            <tr><th scope="row">Door sill lips</th><td class="yes">&#10003;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+            <tr><th scope="row">Second row and rear tunnel</th><td>&middot;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+            <tr><th scope="row">Under-seat coverage</th><td>&middot;</td><td class="yes">&#10003;</td><td class="yes">&#10003;</td></tr>
+            <tr><th scope="row">Cargo area and folded-seat backs</th><td>&middot;</td><td>&middot;</td><td class="yes">&#10003;</td></tr>
+            <tr class="price-row"><th scope="row">PRICE (CAD)</th><td>$189.99</td><td>$279.99</td><td>$329.99</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="footnote anim">*Surface area comparison to 2025 Tesla Model Y OEM floor mats.</p>
+    </section>
+
+    <!-- SHEET 06 · Order form -->
+    <section class="sheet" id="s6" aria-labelledby="t6">
+      <p class="sheetlabel anim">SHEET 06 / 06 &middot; WORK ORDER</p>
+      <div class="duo order-duo">
+        <div class="duo-copy">
+          <h2 id="t6" class="anim">Open a work order.</h2>
+          <p class="proof anim">Your vehicle is scanned, your set is cut to it. Rated 4.8&#9733; by thousands of drivers.<sup>**</sup></p>
+          <p class="proof anim">Backed by our Limited Lifetime Warranty.</p>
+          <p class="footnote anim">**Based on 4,500+ Google Ratings.</p>
+        </div>
+        <form class="workorder frame anim" aria-label="Configure and order your mats">
+          <div class="wo-head">
+            <span>WORK ORDER</span>
+            <span data-wo-no>NO. PENDING</span>
+          </div>
+          <div class="wo-field">
+            <label for="wo-year">VEHICLE</label>
+            <div class="wo-vehicle">
+              <select id="wo-year" name="year" aria-label="Year" required>
+                <option value="" selected disabled>Year</option>
+              </select>
+              <select name="make" aria-label="Make" required>
+                <option value="" selected disabled>Make</option>
+              </select>
+              <select name="model" aria-label="Model" required disabled>
+                <option value="" selected disabled>Model</option>
+              </select>
+            </div>
+          </div>
+          <fieldset class="wo-field">
+            <legend>COVERAGE</legend>
+            <div class="wo-tiers">
+              <label class="wo-tier"><input type="radio" name="coverage" value="front"><span class="wo-box" aria-hidden="true"></span><span class="wo-tier-name">Front Row</span><span class="wo-tier-price">$189.99</span></label>
+              <label class="wo-tier"><input type="radio" name="coverage" value="full" checked><span class="wo-box" aria-hidden="true"></span><span class="wo-tier-name">Front + Second Row</span><span class="wo-tier-price">$279.99</span></label>
+              <label class="wo-tier"><input type="radio" name="coverage" value="fullst"><span class="wo-box" aria-hidden="true"></span><span class="wo-tier-name">Full Set + SuperTrunk&trade;</span><span class="wo-tier-price">$329.99</span></label>
+            </div>
+          </fieldset>
+          <fieldset class="wo-field">
+            <legend>FINISH</legend>
+            <div class="wo-tiers wo-finishes">
+              <label class="wo-tier"><input type="radio" name="color" value="Black" checked><span class="wo-box" aria-hidden="true"></span><span class="wo-tier-name">Black</span></label>
+              <label class="wo-tier"><input type="radio" name="color" value="Two-Tone Gray"><span class="wo-box" aria-hidden="true"></span><span class="wo-tier-name">Two-Tone Gray</span></label>
+            </div>
+          </fieldset>
+          <button class="btn btn-block" type="submit" disabled data-wo-submit>Enter your vehicle above</button>
+          <p class="wo-note">Backed by our Limited Lifetime Warranty.</p>
+        </form>
+      </div>
+      <div class="closing anim">
+        <p class="stamp" aria-hidden="true">NOTHING<br>OVERLOOKED</p>
+        <p class="signoff">TuxMat. Designed to elevate.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+      <p>&copy; 2026 TuxMat Inc.</p>
+      <a href="https://www.tuxmat.ca/">tuxmat.ca</a>
+    </div>
+  </footer>
+
+  <!-- floating order strip -->
+  <div class="stampbar" hidden>
+    <span class="stampbar-detail" data-summary>ENTER YOUR VEHICLE</span>
+    <span class="stampbar-price" data-price>$279.99</span>
+    <button class="btn btn-small" type="button" data-atc>Add to Order</button>
+  </div>
+
+  <!-- order ticket -->
+  <div class="ticket-overlay" hidden></div>
+  <aside class="ticket" aria-label="Order ticket" hidden>
+    <header class="ticket-head">
+      <h2 data-ticket-title>ORDER TICKET</h2>
+      <button class="ticket-close" type="button" aria-label="Close order ticket">&#10005;</button>
+    </header>
+
+    <div class="ticket-panel" data-panel="order">
+      <ul class="ticket-items"></ul>
+      <p class="ticket-empty">No lines yet. Open a work order on Sheet 06.</p>
+      <div class="ticket-foot">
+        <p class="ticket-subtotal"><span>SUBTOTAL</span><span data-subtotal>$0.00</span></p>
+        <p class="ticket-note">Taxes and shipping calculated at checkout.</p>
+        <button class="btn btn-block" type="button" data-checkout disabled>One-step checkout</button>
+      </div>
+    </div>
+
+    <div class="ticket-panel" data-panel="checkout" hidden>
+      <p class="checkout-sub">ONE STEP. CONTACT, SHIPPING, PAYMENT.</p>
+      <form class="checkout-form">
+        <input type="email" name="email" placeholder="EMAIL" autocomplete="email" required>
+        <input type="text" name="name" placeholder="FULL NAME" autocomplete="name" required>
+        <input type="text" name="address" placeholder="ADDRESS" autocomplete="street-address" required>
+        <div class="field-row">
+          <input type="text" name="city" placeholder="CITY" autocomplete="address-level2" required>
+          <input type="text" name="postal" placeholder="POSTAL CODE" autocomplete="postal-code" required>
+        </div>
+        <input type="text" name="card" placeholder="CARD NUMBER" inputmode="numeric" autocomplete="cc-number" required>
+        <div class="field-row">
+          <input type="text" name="exp" placeholder="MM / YY" inputmode="numeric" autocomplete="cc-exp" required>
+          <input type="text" name="cvc" placeholder="CVC" inputmode="numeric" autocomplete="cc-csc" required>
+        </div>
+        <button class="btn btn-block" type="submit" data-pay>Pay $0.00</button>
+        <p class="demo-tag">DEMO &middot; NO PAYMENT IS PROCESSED</p>
+      </form>
+    </div>
+
+    <div class="ticket-panel ticket-success" data-panel="success" hidden>
+      <p class="success-stamp" aria-hidden="true">ORDER<br>PLACED</p>
+      <h3>Filed and confirmed.</h3>
+      <p class="proof">A confirmation is on its way. Your set is cut from the scan of your exact vehicle.</p>
+      <button class="btn btn-ghost" type="button" data-continue>Back to the dossier</button>
+      <p class="demo-tag">DEMO &middot; NO PAYMENT WAS PROCESSED</p>
+    </div>
+  </aside>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
