@@ -3,5 +3,8 @@
   "framework": null,
   "buildCommand": null,
   "installCommand": null,
-  "outputDirectory": "."
+  "outputDirectory": ".",
+  "redirects": [
+    { "source": "/", "destination": "/iyo-edition/", "permanent": false }
+  ]
 }
