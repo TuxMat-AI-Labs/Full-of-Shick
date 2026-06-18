@@ -3,38 +3,46 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TuxMat | Custom-Fit Floor Mats</title>
-  <meta name="description" content="Custom-fit floor mats developed with 3D laser scanning. Up to 2.5x more coverage. Limited Lifetime Warranty. Configure for your exact vehicle.">
-  <meta name="theme-color" content="#070708">
+  <title>TuxMat — Custom-Fit Floor Mats</title>
+  <meta name="description" content="Custom-fit floor mats developed with 3D laser scanning. Up to 2.5x more coverage. Limited Lifetime Warranty.">
+  <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
 </head>
 <body data-page="product">
   <a class="skip" href="#main">Skip to content</a>
+  <div class="rotate-device"><p>Rotate your device to ensure a better experience.</p></div>
 
-  <header class="nav scrolled" data-nav>
-    <button class="icon-btn" type="button" data-menu-open aria-label="Open menu"><span class="glyph" aria-hidden="true">&#9776;</span> Menu</button>
-    <a class="nav-logo" href="index.html">TUX<b>MAT</b></a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="product.html?p=mats">Floor mats</a>
-      <a href="product.html?p=capsule">Capsule</a>
-      <a href="index.html#engineering">Engineering</a>
-      <a href="index.html#reviews">Reviews</a>
-    </nav>
+  <header class="nav">
+    <a class="nav-logo" href="index.html">tux<span class="lc">mat</span></a>
     <div class="nav-right">
-      <button class="icon-btn" type="button" data-cart-open aria-label="Open cart">Cart <span class="cart-count" data-cart-count hidden>0</span></button>
+      <a class="nav-cta" href="product.html?p=mats">Shop now</a>
+      <button class="dot-menu" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="1.745" cy="1.745" r="1.745" fill="currentColor"/><circle cx="7.854" cy="1.745" r="1.745" fill="currentColor"/><circle cx="13.96" cy="1.745" r="1.745" fill="currentColor"/>
+          <circle cx="1.745" cy="7.853" r="1.745" fill="currentColor"/><circle cx="7.854" cy="7.853" r="1.745" fill="currentColor"/><circle cx="13.96" cy="7.853" r="1.745" fill="currentColor"/>
+          <circle cx="1.745" cy="13.96" r="1.745" fill="currentColor"/><circle cx="7.854" cy="13.96" r="1.745" fill="currentColor"/><circle cx="13.96" cy="13.96" r="1.745" fill="currentColor"/>
+        </svg>
+      </button>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <button class="cart-icon" type="button" data-cart-toggle aria-label="Open cart">
+        <svg viewBox="0 0 18 21" fill="none" aria-hidden="true">
+          <path d="M5.76 5.51h6.63c3.13 0 3.45 1.46 3.66 3.25l.83 6.91c.27 2.27-.43 4.12-3.66 4.12H4.94c-3.23 0-3.93-1.85-3.66-4.12l.83-6.91c.2-1.79.51-3.25 3.65-3.25Z" stroke="currentColor" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5.39 6.9V3.67c0-1.38.92-2.3 2.3-2.3h2.77c1.38 0 2.3.92 2.3 2.3V6.9" stroke="currentColor" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </button>
     </div>
   </header>
 
   <main id="main" class="pdp">
     <div class="wrap">
-      <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / <a href="index.html">Floor mats</a> / <span data-vehicle>2026 Nissan Kicks</span></nav>
-
+      <nav class="crumb" aria-label="Breadcrumb"><a href="index.html">Home</a> / Floor mats / <span data-vehicle>2026 Nissan Kicks</span></nav>
       <div class="pdp-layout">
 
-        <!-- Gallery -->
         <div class="gallery">
           <div class="main" data-main></div>
           <div class="thumbs" data-thumbs>
@@ -45,12 +53,10 @@
           </div>
         </div>
 
-        <!-- Buy box -->
         <div class="pdp-info">
           <span class="eyebrow">Custom-fit floor mats</span>
           <h1>Custom-Fit Floor Mats</h1>
           <div class="pdp-rating"><span class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</span> 4.8 &middot; 4,500+ ratings<sup>**</sup> &middot; <span data-vehicle>2026 Nissan Kicks</span></div>
-
           <p class="pdp-price" data-price>$276.80</p>
           <p class="pay4">or 4 interest-free payments of <b data-pay4>$69.20</b> with Shop Pay</p>
 
@@ -70,57 +76,71 @@
 
           <span class="field-label">Finish</span>
           <div class="swatches" role="radiogroup" aria-label="Finish">
-            <label class="swatch sel" data-color="Black"><span class="dot black" aria-hidden="true"></span>Black<input type="radio" name="color" checked hidden></label>
-            <label class="swatch" data-color="Two-Tone Gray"><span class="dot gray" aria-hidden="true"></span>Two-Tone Gray<input type="radio" name="color" hidden></label>
+            <label class="swatch sel" data-color="Black"><span class="sw black" aria-hidden="true"></span>Black<input type="radio" name="color" checked hidden></label>
+            <label class="swatch" data-color="Two-Tone Gray"><span class="sw gray" aria-hidden="true"></span>Two-Tone Gray<input type="radio" name="color" hidden></label>
           </div>
 
-          <button class="btn btn-block btn-gold" type="button" data-add style="margin-top:26px">Add to cart &middot; <span data-add-price>$276.80</span></button>
+          <button class="btn btn-block" type="button" data-add style="margin-top:26px">Add to cart &middot; <span data-add-price>$276.80</span></button>
 
           <div class="assure">
-            <span><span class="glyph" aria-hidden="true">&#9851;</span> Limited Lifetime Warranty</span>
-            <span><span class="glyph" aria-hidden="true">&#128666;</span> Free shipping, ships today</span>
-            <span><span class="glyph" aria-hidden="true">&#8634;</span> 30-day returns</span>
+            <span>&#9851;&nbsp; Limited Lifetime Warranty</span>
+            <span>&#128666;&nbsp; Free shipping, ships today</span>
+            <span>&#8634;&nbsp; 30-day returns</span>
           </div>
 
-          <!-- Cross-sell -->
           <div class="xsell">
             <span class="x-img" data-img="product-capsule.jpg"></span>
             <span><span class="x-name">Add the Capsule&trade; License Plate Case</span><span class="x-sub">Machined aluminum &middot; $149</span></span>
-            <button class="btn btn-ghost btn-sm" type="button" data-xsell>Add</button>
+            <button class="btn btn-ghost" type="button" data-xsell>Add</button>
           </div>
 
           <div class="acc">
-            <details open><summary>Description <span class="ic" aria-hidden="true">+</span></summary><div class="body">You put a case on your phone the day you got it. This is the same instinct, for the surface your car loses first. Tailor-made to your exact vehicle, it covers everything with no gaps and looks like the factory installed it. Keep the interior as new as the day you drove it home.</div></details>
+            <details open><summary>Description <span class="ic" aria-hidden="true">+</span></summary><div class="body">You put a case on your phone the day you got it. This is the same instinct, for the surface your car loses first. Tailor-made to your exact vehicle, it covers everything with no gaps and looks like the factory installed it.</div></details>
             <details><summary>Specs &amp; materials <span class="ic" aria-hidden="true">+</span></summary><div class="body">TriForce&trade; multi-layer construction with a patented carbon fiber-inspired surface.<ul><li>Water-resistant; channels liquid away from the carpet</li><li>Locks into factory anchor points</li><li>Wipes clean without harsh chemicals</li></ul></div></details>
             <details><summary>Shipping &amp; warranty <span class="ic" aria-hidden="true">+</span></summary><div class="body">Free shipping across Canada, same-day dispatch on orders before 4 PM EST. Backed by our Limited Lifetime Warranty and a 30-day money-back guarantee.</div></details>
           </div>
         </div>
       </div>
-
       <p class="foot" style="margin:40px 0 50px">**Based on 4,500+ Google Ratings. Sample pricing for this prototype.</p>
     </div>
   </main>
 
   <footer class="footer">
     <div class="wrap footer-grid">
-      <div>
-        <span class="nav-logo">TUX<b>MAT</b></span>
-        <p class="brand-line">Custom-fit floor mats engineered to preserve the integrity of the vehicle interior.</p>
-      </div>
-      <div><h4>Shop</h4><ul><li><a href="product.html?p=mats">Floor mats</a></li><li><a href="product.html?p=capsule">Capsule&trade; case</a></li></ul></div>
+      <div><span class="nav-logo">tux<span class="lc">mat</span></span><p class="brand-line">Custom-fit floor mats engineered to preserve the integrity of the vehicle interior.</p></div>
+      <div><h4>Shop</h4><ul><li><a href="product.html?p=mats">Floor mats</a></li><li><a href="product.html?p=capsule">Capsule&trade;</a></li></ul></div>
       <div><h4>Support</h4><ul><li><a href="https://www.tuxmat.ca/pages/faq">FAQ</a></li><li><a href="https://www.tuxmat.ca/pages/return-request">Returns</a></li></ul></div>
       <div><h4>Company</h4><ul><li><a href="https://www.tuxmat.ca/pages/company">About</a></li></ul></div>
     </div>
     <div class="wrap footer-bottom"><span>&copy; 2026 TuxMat Inc.</span><span>Nothing Overlooked. Because You Notice.</span></div>
   </footer>
 
-  <!-- sticky mobile add-to-cart -->
-  <div class="sticky-bar" data-sticky-buy>
+  <div class="sticky-bar desktop-hide" data-sticky-buy>
     <span class="sb-price" data-sticky-price>$276.80<small data-sticky-cov>Front + rear</small></span>
-    <button class="btn btn-gold" type="button" data-add>Add to cart</button>
+    <button class="btn" type="button" data-add>Add to cart</button>
   </div>
 
-  <div class="overlay" hidden data-overlay></div>
+  <!-- OVERLAYS -->
+  <div class="scrim" data-scrim></div>
+  <nav class="menu" data-menu aria-label="Products">
+    <div class="menu-inner">
+      <div class="menu-grid">
+        <a class="mcard" href="product.html?p=mats"><span class="ph" data-img="product-mats.jpg" aria-hidden="true"></span><span class="label">Floor Mats</span></a>
+        <a class="mcard" href="product.html?p=cargo"><span class="ph" data-img="product-cargo.jpg" aria-hidden="true"></span><span class="label">SuperTrunk&trade;</span></a>
+        <a class="mcard" href="product.html?p=capsule"><span class="ph" data-img="product-capsule.jpg" aria-hidden="true"></span><span class="label">Capsule&trade;</span></a>
+        <a class="mcard" href="index.html#why"><span class="ph" data-img="macro-edge.jpg" aria-hidden="true"></span><span class="label">Engineering</span></a>
+      </div>
+    </div>
+    <div class="menu-foot">
+      <a href="https://www.tuxmat.ca/pages/faq">FAQ</a><a href="https://www.tuxmat.ca/pages/return-request">Returns</a>
+      <a href="https://www.tuxmat.ca/pages/warranty">Warranty</a><a href="https://www.tuxmat.ca/pages/company">About</a>
+      <span style="margin-left:auto">&copy;2026 TuxMat</span>
+    </div>
+  </nav>
+  <aside class="cart" data-cart aria-label="Cart"></aside>
+  <div class="veil" data-veil></div>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="app.js"></script>
 </body>
 </html>

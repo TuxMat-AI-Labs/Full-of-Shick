@@ -3,272 +3,164 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TuxMat | Precision-Fit Custom Floor Mats</title>
-  <meta name="description" content="Custom-fit floor mats and the Capsule License Plate Case, developed with 3D laser scanning. Up to 2.5x more coverage. Find your exact fit.">
-  <meta name="theme-color" content="#070708">
+  <title>TuxMat — Custom-fit protection for your car</title>
+  <meta name="description" content="TuxMat makes custom-fit floor mats and accessories developed with 3D laser scanning. Fitted to your exact vehicle.">
+  <meta name="theme-color" content="#000000">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
 </head>
 <body data-page="home">
   <a class="skip" href="#main">Skip to content</a>
 
-  <!-- Floating glass nav -->
-  <header class="nav" data-nav>
-    <button class="icon-btn" type="button" data-menu-open aria-label="Open menu"><span class="glyph" aria-hidden="true">&#9776;</span> Menu</button>
-    <a class="nav-logo" href="index.html">TUX<b>MAT</b></a>
-    <nav class="nav-links" aria-label="Primary">
-      <a href="product.html?p=mats">Floor mats</a>
-      <a href="product.html?p=capsule">Capsule</a>
-      <a href="#engineering">Engineering</a>
-      <a href="#reviews">Reviews</a>
-    </nav>
+  <!-- rotate-device overlay (landscape phones) -->
+  <div class="rotate-device"><p>Rotate your device to ensure a better experience.</p></div>
+
+  <!-- NAV -->
+  <header class="nav">
+    <a class="nav-logo" href="index.html">tux<span class="lc">mat</span></a>
     <div class="nav-right">
-      <button class="icon-btn" type="button" data-cart-open aria-label="Open cart">Cart <span class="cart-count" data-cart-count hidden>0</span></button>
+      <a class="nav-cta" href="product.html?p=mats">Shop now</a>
+      <button class="dot-menu" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false">
+        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
+          <circle cx="1.745" cy="1.745" r="1.745" fill="currentColor"/><circle cx="7.854" cy="1.745" r="1.745" fill="currentColor"/><circle cx="13.96" cy="1.745" r="1.745" fill="currentColor"/>
+          <circle cx="1.745" cy="7.853" r="1.745" fill="currentColor"/><circle cx="7.854" cy="7.853" r="1.745" fill="currentColor"/><circle cx="13.96" cy="7.853" r="1.745" fill="currentColor"/>
+          <circle cx="1.745" cy="13.96" r="1.745" fill="currentColor"/><circle cx="7.854" cy="13.96" r="1.745" fill="currentColor"/><circle cx="13.96" cy="13.96" r="1.745" fill="currentColor"/>
+        </svg>
+      </button>
+      <span class="nav-sep" aria-hidden="true"></span>
+      <button class="cart-icon" type="button" data-cart-toggle aria-label="Open cart">
+        <svg viewBox="0 0 18 21" fill="none" aria-hidden="true">
+          <path d="M5.76 5.51h6.63c3.13 0 3.45 1.46 3.66 3.25l.83 6.91c.27 2.27-.43 4.12-3.66 4.12H4.94c-3.23 0-3.93-1.85-3.66-4.12l.83-6.91c.2-1.79.51-3.25 3.65-3.25Z" stroke="currentColor" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M5.39 6.9V3.67c0-1.38.92-2.3 2.3-2.3h2.77c1.38 0 2.3.92 2.3 2.3V6.9" stroke="currentColor" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="cart-count" data-cart-count hidden>0</span>
+      </button>
     </div>
   </header>
 
   <main id="main">
-
-    <!-- HERO -->
+    <!-- HERO: single screen, WebGL product canvas + overlay -->
     <section class="hero">
-      <video class="hero-media" autoplay muted loop playsinline preload="none" poster="assets/hero-poster.jpg" data-bgvideo="hero.mp4" aria-hidden="true"></video>
-      <div class="hero-inner">
-        <span class="eyebrow">Nothing overlooked</span>
-        <h1 class="h-hero">Keep new cars new.</h1>
-        <p class="lead">Tailor-made to your exact vehicle from a 3D laser scan. It covers everything with no gaps, and it looks like the factory put it there.</p>
-        <div class="selector" data-selector-card>
-          <span class="sel-label"><span class="dot" aria-hidden="true"></span> Find your exact fit</span>
-          <form class="sel-fields" data-selector aria-label="Find mats for your vehicle">
-            <select name="year" aria-label="Year" required><option value="" selected disabled>Year</option></select>
-            <select name="make" aria-label="Make" required><option value="" selected disabled>Make</option></select>
-            <select name="model" aria-label="Model" required disabled><option value="" selected disabled>Model</option></select>
-          </form>
-          <button class="btn btn-gold btn-block" type="button" data-find disabled>Find my fit <span class="arr" aria-hidden="true">&rarr;</span></button>
+      <div class="hero-glow" aria-hidden="true"></div>
+      <div class="hero-3d" data-hero-3d aria-label="A custom-fit floor mat rendered in three dimensions, swept by a laser scan line." role="img"></div>
+
+      <div class="hero-top">
+        <h1 class="hero-h">We make custom floor mats <span class="last">fitted to your exact car</span></h1>
+        <p class="hero-sub">Developed with 3D laser scanning. It covers everything with no gaps, and it looks like the factory put it there.</p>
+      </div>
+
+      <div class="hero-bottom">
+        <div class="shop-eyebrow eyebrow">Shop the lineup</div>
+        <div class="pcards">
+          <article class="pcard">
+            <div class="pcard-img"><span class="ph" data-img="product-mats.jpg" aria-hidden="true"></span></div>
+            <div class="pcard-title">Floor Mats</div>
+            <div class="pcard-ctas"><a class="pc-link pc-learn" href="product.html?p=mats">Learn more</a><a class="pc-link pc-shop" href="product.html?p=mats">Shop now</a></div>
+          </article>
+          <article class="pcard">
+            <div class="pcard-img"><span class="ph" data-img="product-cargo.jpg" aria-hidden="true"></span></div>
+            <div class="pcard-title">SuperTrunk&trade;</div>
+            <div class="pcard-ctas"><a class="pc-link pc-learn" href="product.html?p=cargo">Learn more</a><a class="pc-link pc-shop" href="product.html?p=cargo">Shop now</a></div>
+          </article>
+          <article class="pcard">
+            <div class="pcard-img"><span class="ph" data-img="product-capsule.jpg" aria-hidden="true"></span></div>
+            <div class="pcard-title">Capsule&trade;</div>
+            <div class="pcard-ctas"><a class="pc-link pc-learn" href="product.html?p=capsule">Learn more</a><a class="pc-link pc-shop" href="product.html?p=capsule">Shop now</a></div>
+          </article>
+          <article class="pcard soon">
+            <div class="pcard-img"><span class="ph" data-img="design.jpg" aria-hidden="true"></span></div>
+            <div class="pcard-title">Seat Protection</div>
+            <div class="pcard-ctas"><span class="pc-link pc-learn">Coming soon</span></div>
+          </article>
         </div>
       </div>
-      <div class="scroll-hint"><span class="bar" aria-hidden="true"></span>Scroll</div>
+      <div class="scroll-cue" aria-hidden="true">Scroll</div>
     </section>
 
-    <!-- STATEMENT -->
-    <section class="statement wrap">
-      <h2 class="h-statement">You cased your phone on day one. <span class="grad">Same instinct, bigger investment.</span></h2>
-    </section>
-
-    <!-- PRODUCT SHOWCASE -->
-    <section class="section">
+    <!-- One restrained proof section (kept minimal, in the iyo register) -->
+    <section class="section" id="why">
       <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">The system</span>
-          <h2 class="h-section">Two products. One standard.</h2>
-        </div>
-        <div class="showcase">
-          <a class="pcard" href="product.html?p=mats">
-            <span class="pc-img" data-img="product-mats.jpg" aria-hidden="true"></span>
-            <span class="pc-body">
-              <span class="eyebrow">Interior</span>
-              <h3>Custom-fit floor mats</h3>
-              <span class="pc-meta"><span class="pc-price">From $189</span> &middot; <span>Up to 2.5x more coverage<sup>*</sup></span></span>
-              <span class="txt-link">Shop your vehicle <span class="arr" aria-hidden="true">&rarr;</span></span>
-            </span>
-          </a>
-          <a class="pcard" href="product.html?p=capsule">
-            <span class="pc-img" data-img="product-capsule.jpg" aria-hidden="true"></span>
-            <span class="pc-body">
-              <span class="eyebrow">Exterior</span>
-              <h3>Capsule&trade; license plate case</h3>
-              <span class="pc-meta"><span class="pc-price">From $149</span> &middot; <span>Machined aluminum</span></span>
-              <span class="txt-link">Discover the Capsule <span class="arr" aria-hidden="true">&rarr;</span></span>
-            </span>
-          </a>
-          <a class="pcard" href="product.html?p=cargo" style="min-height:240px">
-            <span class="pc-img" data-img="product-cargo.jpg" aria-hidden="true"></span>
-            <span class="pc-body">
-              <span class="eyebrow">Cargo</span>
-              <h3>SuperTrunk&trade; protection</h3>
-              <span class="pc-meta"><span class="pc-price">From $179</span></span>
-              <span class="txt-link">Shop cargo <span class="arr" aria-hidden="true">&rarr;</span></span>
-            </span>
-          </a>
-          <div class="pcard soon">
-            <div class="pc-body">
-              <span class="eyebrow">In development</span>
-              <h3>Seat protection</h3>
-              <span class="pc-meta" style="justify-content:center">Coming soon</span>
+        <div class="feature">
+          <div class="feat-media reveal"><span class="ph" data-img="engineering.jpg" aria-hidden="true"></span></div>
+          <div class="feat-copy reveal">
+            <span class="eyebrow">Scanned, not approximated</span>
+            <h2 class="h-section">Cut to the exact geometry of your car.</h2>
+            <p>Every mat begins as a 3D laser scan of your year, make and model. TriForce&trade; multi-layer construction holds the shape and channels liquid away from the carpet.</p>
+            <div class="feat-stats">
+              <div><div class="n">2.5x</div><div class="l">More coverage<sup>*</sup></div></div>
+              <div><div class="n">4.8&#9733;</div><div class="l">4,500+ ratings<sup>**</sup></div></div>
+              <div><div class="n">&#8734;</div><div class="l">Limited Lifetime Warranty</div></div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
-
-    <!-- SPEC STRIP -->
-    <section class="specstrip">
-      <div class="wrap">
-        <div class="spec-row">
-          <div class="spec"><span class="glyph" aria-hidden="true">&#9733;</span><div><b>Rated 4.8&#9733;</b><span>Based on 4,500+ Google Ratings<sup>**</sup></span></div></div>
-          <div class="spec"><span class="glyph" aria-hidden="true">&#9851;</span><div><b>Limited Lifetime Warranty</b><span>Included with every set</span></div></div>
-          <div class="spec"><span class="glyph" aria-hidden="true">&#128666;</span><div><b>Free shipping</b><span>Across Canada, ships same day</span></div></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- FEATURE: category disruption (no gaps) + compare -->
-    <section class="section" id="coverage">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">Like a great case, no gaps</span>
-          <h2 class="h-section">Nothing sneaks past onto the carpet.</h2>
-          <p class="lead">A case that leaves the corners exposed protects nothing. TuxMat reaches up the sides and meets every edge.<sup>*</sup> Drag to see what stays covered.</p>
-        </div>
-        <div class="compare" data-compare>
+        <div class="compare reveal" data-compare style="margin-top:60px">
           <div class="cimg after" data-img="compare-with.jpg" role="img" aria-label="Footwell with a TuxMat installed"></div>
           <div class="cimg before" data-img="compare-without.jpg" role="img" aria-label="Footwell without a TuxMat"></div>
-          <div class="cbar" aria-hidden="true"></div>
-          <div class="handle" aria-hidden="true">&#8596;</div>
+          <div class="cbar" aria-hidden="true"></div><div class="handle" aria-hidden="true">&#8596;</div>
           <span class="clabel l">Exposed</span><span class="clabel r">Protected</span>
           <input type="range" min="0" max="100" value="50" aria-label="Reveal comparison">
         </div>
       </div>
     </section>
 
-    <!-- FEATURE: engineering depth -->
-    <section class="section" id="engineering">
-      <div class="wrap">
-        <div class="feature">
-          <div class="feat-media reveal">
-            <span class="m-img" data-img="engineering.jpg" aria-hidden="true"></span>
-          </div>
-          <div class="feat-copy reveal">
-            <span class="eyebrow">Engineering depth</span>
-            <h2 class="h-section">Scanned, not approximated.</h2>
-            <p class="lead">Every mat begins as a 3D laser scan of your exact year, make and model, then is cut to that geometry. TriForce&trade; multi-layer construction holds the shape and channels liquid away from the carpet.</p>
-            <div class="feat-stats">
-              <div class="stat"><div class="n">2.5x</div><div class="l">More coverage<sup>*</sup></div></div>
-              <div class="stat"><div class="n">3D</div><div class="l">Laser scanned</div></div>
-              <div class="stat"><div class="n">&#8734;</div><div class="l">Lifetime warranty</div></div>
-            </div>
-          </div>
-        </div>
-
-        <!-- FEATURE: design authority -->
-        <div class="feature flip">
-          <div class="feat-media reveal">
-            <span class="m-img" data-img="design.jpg" aria-hidden="true"></span>
-          </div>
-          <div class="feat-copy reveal">
-            <span class="eyebrow">Design authority</span>
-            <h2 class="h-section">It looks like it belongs.</h2>
-            <p class="lead">A flush, tailored finish in black or two-tone gray that reads as factory, not aftermarket. Locks into your vehicle's anchor points and wipes clean without harsh chemicals.</p>
-            <a class="txt-link" href="product.html?p=mats">Configure your set <span class="arr" aria-hidden="true">&rarr;</span></a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- HOTSPOTS: look closer -->
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">Look closer. We did.</span>
-          <h2 class="h-section">Where it covers, and why it disappears.</h2>
-          <p class="lead">Tap the points. This is the part other protection leaves exposed.</p>
-        </div>
-        <div class="hotspots" data-img="compare-with.jpg" data-hotspots>
-          <button class="hot" style="top:44%; left:22%" data-cap="Up the sides|Raised walls carry coverage up the footwell, not just across the floor." aria-label="Up the sides">+</button>
-          <button class="hot" style="top:72%; left:54%" data-cap="Meets the edge|Laser-cut to your exact car, so nothing sneaks past onto the carpet." aria-label="Meets the edge">+</button>
-          <button class="hot" style="top:30%; left:76%" data-cap="Looks factory|A flush, tailored finish that looks like the car came with it." aria-label="Looks factory">+</button>
-          <div class="hot-cap" data-hot-cap></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIDEO BAND -->
-    <section class="vband">
-      <video class="vband-media" autoplay muted loop playsinline preload="none" poster="assets/editorial-poster.jpg" data-bgvideo="editorial.mp4" aria-hidden="true"></video>
-      <div class="vband-inner reveal">
-        <span class="eyebrow">Made for your exact car</span>
-        <h2 class="h-statement" style="max-width:14ch">The relief of knowing it's covered.</h2>
-        <p class="lead">Keep it as new as the day you drove it home.</p>
-      </div>
-    </section>
-
-    <!-- CAROUSEL -->
-    <section class="section">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">In the wild</span>
-          <h2 class="h-section">Fitted to thousands of vehicles.</h2>
-        </div>
-      </div>
-      <div class="carousel" data-carousel>
-        <div class="carousel-track" data-carousel-track>
-          <div class="cslide"><span class="cs-img" data-img="g1.jpg" aria-hidden="true"></span><span class="cs-cap">Front row<small>Driver and passenger footwells</small></span></div>
-          <div class="cslide"><span class="cs-img" data-img="g2.jpg" aria-hidden="true"></span><span class="cs-cap">Second row<small>Edge-to-edge rear coverage</small></span></div>
-          <div class="cslide"><span class="cs-img" data-img="g3.jpg" aria-hidden="true"></span><span class="cs-cap">Cargo area<small>SuperTrunk&trade; protection</small></span></div>
-          <div class="cslide"><span class="cs-img" data-img="g4.jpg" aria-hidden="true"></span><span class="cs-cap">Two-tone gray<small>A factory-grade finish</small></span></div>
-          <div class="cslide"><span class="cs-img" data-img="g5.jpg" aria-hidden="true"></span><span class="cs-cap">Up the sills<small>Coverage where mats stop</small></span></div>
-          <div class="cslide"><span class="cs-img" data-img="g6.jpg" aria-hidden="true"></span><span class="cs-cap">Capsule&trade; case<small>Machined aluminum, exterior</small></span></div>
-        </div>
-        <div class="carousel-nav">
-          <button class="cnav-btn" type="button" data-carousel-prev aria-label="Previous">&larr;</button>
-          <button class="cnav-btn" type="button" data-carousel-next aria-label="Next">&rarr;</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- REVIEWS -->
-    <section class="section" id="reviews">
-      <div class="wrap">
-        <div class="section-head">
-          <span class="eyebrow">The peace of mind</span>
-          <h2 class="h-section">Rated 4.8&#9733; by thousands of drivers.<sup>**</sup></h2>
-        </div>
-      </div>
-      <div class="carousel" data-carousel>
-        <div class="carousel-track" data-carousel-track>
-          <div class="review"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Exact fit, edge to edge. The coverage up the sides is the part other mats miss.</p><span class="who">Verified buyer &middot; Honda CR-V</span></div>
-          <div class="review"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Wipes clean in seconds and snaps right back into the anchors. Feels factory.</p><span class="who">Verified buyer &middot; Tesla Model Y</span></div>
-          <div class="review"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>Looks like it came with the car. Exactly what I wanted, nothing more.</p><span class="who">Verified buyer &middot; BMW X5</span></div>
-          <div class="review"><div class="stars" aria-hidden="true">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p>The two-tone gray reads as a factory option. Quiet, precise, considered.</p><span class="who">Verified buyer &middot; Audi Q5</span></div>
-        </div>
-        <div class="carousel-nav">
-          <button class="cnav-btn" type="button" data-carousel-prev aria-label="Previous">&larr;</button>
-          <button class="cnav-btn" type="button" data-carousel-next aria-label="Next">&rarr;</button>
-        </div>
-      </div>
-    </section>
-
-    <!-- CTA BAND -->
+    <!-- CTA -->
     <section class="ctaband wrap">
-      <span class="eyebrow">Find your exact fit</span>
-      <h2 class="h-statement">Start with your vehicle.</h2>
-      <button class="btn btn-gold" type="button" data-scroll-top>Find my fit <span class="arr" aria-hidden="true">&rarr;</span></button>
+      <span class="eyebrow">Start with your vehicle</span>
+      <h2 class="h-section">Find your exact fit.</h2>
+      <a class="btn" href="product.html?p=mats" style="margin-top:26px">Shop your vehicle <span class="arr" aria-hidden="true">&rarr;</span></a>
       <p class="foot" style="margin-top:24px">*Surface area comparison to 2025 Tesla Model Y OEM floor mats. &nbsp; **Based on 4,500+ Google Ratings.</p>
     </section>
-
   </main>
 
   <footer class="footer">
     <div class="wrap footer-grid">
       <div>
-        <span class="nav-logo">TUX<b>MAT</b></span>
-        <p class="brand-line">Custom-fit floor mats engineered to preserve the integrity of the vehicle interior. Nothing Overlooked. Because You Notice.</p>
+        <span class="nav-logo">tux<span class="lc">mat</span></span>
+        <p class="brand-line">Custom-fit floor mats engineered to preserve the integrity of the vehicle interior.</p>
       </div>
-      <div><h4>Shop</h4><ul><li><a href="product.html?p=mats">Floor mats</a></li><li><a href="product.html?p=cargo">SuperTrunk&trade;</a></li><li><a href="product.html?p=capsule">Capsule&trade; case</a></li></ul></div>
-      <div><h4>Support</h4><ul><li><a href="https://www.tuxmat.ca/pages/faq">FAQ</a></li><li><a href="https://www.tuxmat.ca/pages/how-to-guides">How-to guides</a></li><li><a href="https://www.tuxmat.ca/pages/return-request">Returns</a></li><li><a href="https://www.tuxmat.ca/pages/warranty">Warranty</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="https://www.tuxmat.ca/pages/company">About</a></li><li><a href="#reviews">Reviews</a></li></ul></div>
+      <div><h4>Shop</h4><ul><li><a href="product.html?p=mats">Floor mats</a></li><li><a href="product.html?p=cargo">SuperTrunk&trade;</a></li><li><a href="product.html?p=capsule">Capsule&trade;</a></li></ul></div>
+      <div><h4>Support</h4><ul><li><a href="https://www.tuxmat.ca/pages/faq">FAQ</a></li><li><a href="https://www.tuxmat.ca/pages/return-request">Returns</a></li><li><a href="https://www.tuxmat.ca/pages/warranty">Warranty</a></li></ul></div>
+      <div><h4>Company</h4><ul><li><a href="https://www.tuxmat.ca/pages/company">About</a></li></ul></div>
     </div>
     <div class="wrap footer-bottom"><span>&copy; 2026 TuxMat Inc.</span><span>Nothing Overlooked. Because You Notice.</span></div>
   </footer>
 
-  <!-- sticky mobile action bar -->
-  <div class="sticky-bar desktop-hide" data-sticky>
-    <span class="sb-price">Find your fit<small>3D laser-scanned to your vehicle</small></span>
-    <button class="btn btn-gold" type="button" data-sticky-find>Shop your vehicle</button>
-  </div>
+  <!-- OVERLAYS -->
+  <div class="scrim" data-scrim></div>
 
-  <div class="overlay" hidden data-overlay></div>
+  <!-- full-screen card menu -->
+  <nav class="menu" data-menu aria-label="Products">
+    <div class="menu-inner">
+      <div class="menu-grid">
+        <a class="mcard" href="product.html?p=mats"><span class="ph" data-img="product-mats.jpg" aria-hidden="true"></span><span class="label">Floor Mats</span></a>
+        <a class="mcard" href="product.html?p=cargo"><span class="ph" data-img="product-cargo.jpg" aria-hidden="true"></span><span class="label">SuperTrunk&trade;</span></a>
+        <a class="mcard" href="product.html?p=capsule"><span class="ph" data-img="product-capsule.jpg" aria-hidden="true"></span><span class="label">Capsule&trade;</span></a>
+        <a class="mcard" href="#why"><span class="ph" data-img="macro-edge.jpg" aria-hidden="true"></span><span class="label">Engineering</span></a>
+      </div>
+    </div>
+    <div class="menu-foot">
+      <a href="https://www.tuxmat.ca/pages/faq">FAQ</a>
+      <a href="https://www.tuxmat.ca/pages/return-request">Returns</a>
+      <a href="https://www.tuxmat.ca/pages/warranty">Warranty</a>
+      <a href="https://www.tuxmat.ca/pages/company">About</a>
+      <span style="margin-left:auto">&copy;2026 TuxMat</span>
+    </div>
+  </nav>
+
+  <!-- slide cart (built/managed by app.js) -->
+  <aside class="cart" data-cart aria-label="Cart"></aside>
+
+  <!-- page-transition veil -->
+  <div class="veil" data-veil></div>
+
+  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
   <script src="app.js"></script>
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js" } }
+  </script>
+  <script type="module" src="hero3d.js"></script>
 </body>
 </html>
