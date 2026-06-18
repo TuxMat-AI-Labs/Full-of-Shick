@@ -1,0 +1,270 @@
+/* ================================================================
+   TuxMat — iyo-clone overrides
+   Keeps all iyo .centered-nav / .product-cards / .canvas-w hooks.
+   Only resets things that don't map: brand colours, body reveal,
+   canvas sizing, product-image placeholders.
+   ================================================================ */
+
+/* 1. Make body visible (iyo webflow sets visibility:hidden until JS) */
+body { visibility: visible !important; }
+[data-out] { visibility: visible !important; }
+
+/* 2. TuxMat colour palette (override webflow defaults) */
+:root {
+  --bg: #000;
+  --ink: #fff;
+  --dim: rgba(255,255,255,.56);
+  --faint: rgba(255,255,255,.34);
+  --line: rgba(255,255,255,.14);
+  --accent: #c8d2ff;   /* iyo periwinkle kept */
+  --ease: cubic-bezier(.625,.05,0,1);
+}
+
+*, ::after, ::before { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--bg); color: var(--ink); }
+a { color: inherit; text-decoration: none; }
+button { font: inherit; cursor: pointer; border: 0; background: none; }
+
+/* 3. Webflow .body / .app / .content baseline */
+.body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+        -webkit-font-smoothing: antialiased; overscroll-behavior: none; }
+::-webkit-scrollbar { display: none; }
+body { scrollbar-width: none; }
+.app { position: relative; }
+.content { position: relative; min-height: 100vh; }
+
+/* 4. hero canvas container — must cover full viewport */
+.canvas-w.is--home {
+  position: fixed; inset: 0; z-index: 0; pointer-events: none; overflow: hidden;
+}
+.canvas-w.is--home canvas {
+  width: 100% !important; height: 100% !important; display: block;
+}
+
+/* 5. Hero section layout — mirrors iyo: heading bottom-left, cards below */
+.section.is--home {
+  position: relative; min-height: 100svh;
+  display: flex; flex-direction: column;
+}
+.main-wrap {
+  position: relative; z-index: 2;
+  display: flex; flex-direction: column;
+  justify-content: flex-end;
+  min-height: 100svh;
+}
+/* gradient fade at bottom so heading reads over the mat */
+.main-wrap::after {
+  content: '';
+  position: fixed; bottom: 0; left: 0; right: 0; height: 55%;
+  background: linear-gradient(to bottom, transparent 0%, rgba(0,0,0,.7) 60%, rgba(0,0,0,.92) 100%);
+  z-index: 1; pointer-events: none;
+}
+.info__wrapper, .product-cards-hero { position: relative; z-index: 2; }
+
+/* 6. Heading — iyo positions this at bottom-left */
+.info__wrapper { padding: 0 24px 24px; text-align: left; }
+.h-h4.is--configurator {
+  font-size: clamp(1.7rem, 5.2vw, 3.2rem);
+  font-weight: 500; letter-spacing: -.03em; line-height: 1.04;
+  max-width: 16ch;
+}
+.info__text-last { opacity: .45; }
+
+/* 7. Navigation sizing — iyo CSS handles most, just ensure pill is visible */
+.navigation { position: fixed; top: 12px; left: 12px; right: 12px; z-index: 120; }
+.centered-nav { border-radius: 3em; overflow: hidden; }
+.centered-nav__bg {
+  background: rgba(16,16,16,.55);
+  border: 1px solid rgba(255,255,255,.14);
+  backdrop-filter: blur(18px) saturate(160%);
+  -webkit-backdrop-filter: blur(18px) saturate(160%);
+  position: absolute; inset: 0; border-radius: inherit;
+}
+.centered-nav__header {
+  position: relative; z-index: 2;
+  display: flex; align-items: center; gap: 12px;
+  padding: 0 14px 0 22px; height: 56px;
+}
+.centered-nav__logo { flex-shrink: 0; color: #fff; }
+.tm-wordmark {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", system-ui, sans-serif;
+  font-size: 21px; font-weight: 800; letter-spacing: -.04em; line-height: 1;
+  display: inline-block;
+}
+.tm-wm-light { font-weight: 300; }
+.navbar__element-wrapper { margin-left: auto; }
+.nav-cta-w { display: none; }
+@media(min-width: 600px) { .nav-cta-w { display: block; } }
+.navbar__button {
+  display: flex; align-items: center;
+  font-size: 13px; font-weight: 600;
+  padding: 9px 18px; border: 1px solid #fff; border-radius: 999px;
+  white-space: nowrap;
+  transition: background .25s, color .25s;
+}
+.navbar__button:hover { background: #fff; color: #000; }
+.nb__text-wrap { overflow: hidden; height: 1.2em; }
+.nb__text { display: block; }
+
+/* 3×3 dot grid */
+.navbar__menu {
+  width: 28px; height: 28px; cursor: pointer; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+}
+.navbar__svg { width: 16px; height: 16px; display: block; }
+
+/* separator */
+.nav__separator {
+  width: 1px; height: 20px; flex-shrink: 0;
+  display: flex; flex-direction: column; gap: 4px; align-items: center;
+}
+.separator__line { flex: 1; width: 1px; background: rgba(255,255,255,.4); }
+
+/* cart icon */
+.navbar__cart { width: 24px; height: 26px; cursor: pointer; position: relative; flex-shrink: 0; }
+.cart__svg { width: 100%; height: 100%; display: block; }
+.cart-count {
+  position: absolute; top: -7px; right: -9px;
+  min-width: 17px; height: 17px; padding: 0 4px; border-radius: 999px;
+  background: #fff; color: #000; font-size: 10.5px; font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+}
+
+/* expanded nav panel */
+.centered-nav__content {
+  display: grid; grid-template-rows: 0fr;
+  will-change: grid-template-rows;
+  transition: grid-template-rows .6s var(--ease);
+}
+[data-navigation-status="active"] .centered-nav__content { grid-template-rows: 1fr; }
+.centered-nav__inner { overflow: hidden; min-height: 0; }
+
+/* card menu */
+.card__menu { padding: 12px 12px 4px; }
+.card__row {
+  display: flex; gap: 8px; margin-bottom: 8px;
+}
+.card__wrap {
+  flex: 1; border-radius: 14px;
+  background: rgba(255,255,255,.06);
+  padding: 14px; overflow: hidden;
+  transition: background .2s;
+  min-height: 80px;
+  display: flex; align-items: stretch;
+}
+.card__wrap:hover { background: rgba(255,255,255,.12); }
+.card__content-wrap { width: 100%; display: flex; flex-direction: column; justify-content: space-between; }
+.nc__text-wrap { margin-bottom: 8px; }
+.nc__text p { font-size: 13px; font-weight: 500; margin: 0; }
+.nc__img { width: 100%; aspect-ratio: 4/3; border-radius: 8px; overflow: hidden; background: #1a1a1a; }
+.nc__img.is--vertical { aspect-ratio: 3/4; }
+.nc__img.is--smaller { aspect-ratio: 1/1; }
+.tm-card-img { width: 100%; height: 100%; background-size: cover; background-position: center; }
+.tm-img-mats    { background: linear-gradient(135deg, #1a1f2e 0%, #2a3350 100%); }
+.tm-img-trunk   { background: linear-gradient(135deg, #1e2018 0%, #3a3d28 100%); }
+.tm-img-capsule { background: linear-gradient(135deg, #1e1a1a 0%, #3d2828 100%); }
+.tm-img-eng     { background: linear-gradient(135deg, #111 0%, #222 100%); }
+.tm-img-fit     { background: linear-gradient(135deg, #121820 0%, #1e2840 100%); }
+.tm-img-about   { background: linear-gradient(135deg, #181818 0%, #282828 100%); }
+
+.copyright-nav { display: flex; justify-content: space-between; padding: 8px 4px; }
+.copyright__text-wrap p { font-size: 11px; color: rgba(255,255,255,.3); margin: 0; }
+
+/* dark bg overlay */
+.navigation__dark-bg {
+  position: fixed; inset: 0; z-index: -1;
+  background: rgba(0,0,0,.5); opacity: 0; visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+}
+[data-navigation-status="active"] .navigation__dark-bg { opacity: 1; visibility: visible; }
+
+/* cart panel */
+.cart__wrapper { padding: 16px; }
+.cart-empty-message { font-size: 14px; color: rgba(255,255,255,.5); text-align: center; padding: 32px 0; }
+.cart_total-row { display: flex; justify-content: space-between; padding: 12px 0; border-top: 1px solid rgba(255,255,255,.12); }
+.label { font-size: 13px; font-weight: 600; }
+.cart-total { font-size: 13px; }
+.cart_cart-actions { margin-top: 12px; }
+.checkout__button {
+  display: block; width: 100%; padding: 14px;
+  background: #fff; color: #000; border-radius: 999px;
+  font-size: 14px; font-weight: 700; text-align: center;
+  transition: opacity .2s;
+}
+.checkout__button:hover { opacity: .85; }
+
+/* 8. Mobile product cards — slim horizontal row matching iyo's proportions */
+.product-cards-hero { padding: 0 16px 20px; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.product-cards-hero::-webkit-scrollbar { display: none; }
+.product-list { display: flex; gap: 10px; padding-bottom: 2px; }
+/* iyo card: ~180px wide, ~90px tall — horizontal layout */
+.product-item { flex-shrink: 0; width: 175px; }
+.product-card.is--mobile {
+  border-radius: 14px; overflow: hidden; background: rgba(255,255,255,.06);
+  display: flex; flex-direction: row; height: 76px; align-items: stretch;
+}
+.product-card-img {
+  width: 72px; flex-shrink: 0; height: 100%;
+}
+.tm-prod-img { background-size: cover; background-position: center; }
+.tm-prod-mats    { background: linear-gradient(135deg, #1a1f2e 0%, #2a3350 100%); }
+.tm-prod-trunk   { background: linear-gradient(135deg, #1e2018 0%, #3a3d28 100%); }
+.tm-prod-capsule { background: linear-gradient(135deg, #1e1a1a 0%, #3d2828 100%); }
+.tm-prod-seat    { background: linear-gradient(135deg, #181820 0%, #28283a 100%); }
+.product-content { padding: 10px 10px 10px 10px; display: flex; flex-direction: column; justify-content: space-between; flex: 1; min-width: 0; }
+.product-title-mobile p { font-size: 12px; font-weight: 600; margin: 0; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.product-cta-wrap { display: flex; gap: 6px; }
+.learn-cta, .shop-cta { font-size: 10px; font-weight: 500; padding: 4px 8px; border: 1px solid rgba(255,255,255,.2); border-radius: 999px; white-space: nowrap; }
+.shop-cta { background: #fff; color: #000; border-color: #fff; }
+.paragraph.is--product-cards { font-size: 10px; margin: 0; }
+
+/* 9. Desktop fan deck (data-module=product-cards) */
+.product-cards-wrap.is--desktop {
+  position: absolute; right: 24px; bottom: 60px;
+  display: none;
+}
+@media(min-width: 768px) {
+  .product-cards-wrap.is--desktop { display: block; }
+  .product-cards-hero { display: none; }
+}
+.product-card-wrap {
+  display: flex; flex-direction: column-reverse; align-items: flex-end;
+  height: 7.2vw; position: relative;
+  transition: height .6s var(--ease);
+}
+.product-card-wrap:hover { height: auto; }
+.product-w { position: relative; }
+.product-w:nth-last-child(2) .product-card { transform: translateY(90%) scale(.93); }
+.product-w:nth-last-child(3) .product-card { transform: translateY(180%) scale(.87); }
+.product-w:nth-last-child(4) .product-card { transform: translateY(270%) scale(.8); }
+.product-card-wrap:hover .product-w .product-card { transform: translateY(0) scale(1); }
+.product-card {
+  display: block; width: 5.5vw; height: 5.5vw;
+  border-radius: 14px; overflow: hidden;
+  background: rgba(33,33,33,.69);
+  transition: width .6s var(--ease), height .6s var(--ease), transform .8s var(--ease);
+}
+.product-card:hover { background: rgba(46,46,46,.69); width: 6vw; height: 6vw; }
+.product-img { width: 100%; height: 100%; }
+.product-title { position: absolute; right: 110%; top: 50%; transform: translateY(-50%); white-space: nowrap; opacity: 0; transition: opacity .5s; }
+.product-card-wrap:hover .product-w:hover .product-title { opacity: 1; }
+.product-title p { font-size: 12px; font-weight: 500; margin: 0; }
+.shop-now-text { text-align: right; margin-top: 8px; }
+.paragraph.is--eyebrow { font-size: 11px; letter-spacing: .14em; text-transform: uppercase; color: rgba(255,255,255,.4); margin: 0; }
+
+/* 10. rotate-device overlay */
+.rotate-device { display: none; }
+@media(max-width: 767px) and (orientation: landscape) {
+  .rotate-device {
+    position: fixed; inset: 0; z-index: 400; background: #000;
+    display: flex; align-items: center; justify-content: center; text-align: center; padding: 30px;
+  }
+  .rotate__text-wrap p { color: rgba(255,255,255,.6); font-size: 15px; max-width: 24ch; margin: 0; }
+}
+
+/* 11. gsap-loaded reveal (same as iyo) */
+.gsap-loaded .navbar__menu,
+.gsap-loaded .nb__text-wrap,
+.gsap-loaded .centered-nav,
+.gsap-loaded .h-h4 { opacity: 1; }
+.navbar__menu, .h-h4 { opacity: 1; } /* no GSAP here, always visible */

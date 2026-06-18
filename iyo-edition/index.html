@@ -1,177 +1,320 @@
 <!doctype html>
-<html lang="en">
+<html data-wf-domain="tuxmat.ca" lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>TuxMat — Custom-fit protection for your car</title>
-  <meta name="description" content="TuxMat makes custom-fit floor mats and accessories developed with 3D laser scanning. Fitted to your exact vehicle.">
+  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <title>TuxMat — Custom-fit floor mats for your exact car</title>
+  <meta name="description" content="TuxMat makes custom-fit floor mats developed with 3D laser scanning. Fitted to your exact vehicle. Nothing overlooked.">
   <meta name="theme-color" content="#000000">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://unpkg.com/lenis@1.1.13/dist/lenis.css">
+
+  <!-- Webflow shared CSS (iyo structural base) -->
+  <link rel="stylesheet" href="webflow-shared.css">
+  <!-- iyo app.css (nav pill, product cards fan, transitions) -->
+  <link rel="stylesheet" href="iyo-app.css">
+  <!-- Lenis smooth scroll styles -->
+  <link rel="stylesheet" href="https://unpkg.com/lenis@1.3.17/dist/lenis.css">
+  <!-- TuxMat overrides — swap iyo brand colours / content sizing -->
+  <link rel="stylesheet" href="tuxmat.css">
+
+  <script>
+    /* iyo webflow body-visibility trick */
+    !function(o,c){var n=c.documentElement,t=" w-mod-";n.className+=t+"js",("ontouchstart"in o||o.DocumentTouch&&c instanceof DocumentTouch)&&(n.className+=t+"touch")}(window,document);
+  </script>
 </head>
-<body data-page="home">
-  <a class="skip" href="#main">Skip to content</a>
 
-  <!-- rotate-device overlay (landscape phones) -->
-  <div class="rotate-device"><p>Rotate your device to ensure a better experience.</p></div>
+<body class="body" data-page="home">
 
-  <!-- NAV -->
-  <header class="nav">
-    <a class="nav-logo" href="index.html">tux<span class="lc">mat</span></a>
-    <div class="nav-right">
-      <a class="nav-cta" href="product.html?p=mats">Shop now</a>
-      <button class="dot-menu" type="button" data-menu-toggle aria-label="Open menu" aria-expanded="false">
-        <svg viewBox="0 0 16 16" fill="none" aria-hidden="true">
-          <circle cx="1.745" cy="1.745" r="1.745" fill="currentColor"/><circle cx="7.854" cy="1.745" r="1.745" fill="currentColor"/><circle cx="13.96" cy="1.745" r="1.745" fill="currentColor"/>
-          <circle cx="1.745" cy="7.853" r="1.745" fill="currentColor"/><circle cx="7.854" cy="7.853" r="1.745" fill="currentColor"/><circle cx="13.96" cy="7.853" r="1.745" fill="currentColor"/>
-          <circle cx="1.745" cy="13.96" r="1.745" fill="currentColor"/><circle cx="7.854" cy="13.96" r="1.745" fill="currentColor"/><circle cx="13.96" cy="13.96" r="1.745" fill="currentColor"/>
-        </svg>
-      </button>
-      <span class="nav-sep" aria-hidden="true"></span>
-      <button class="cart-icon" type="button" data-cart-toggle aria-label="Open cart">
-        <svg viewBox="0 0 18 21" fill="none" aria-hidden="true">
-          <path d="M5.76 5.51h6.63c3.13 0 3.45 1.46 3.66 3.25l.83 6.91c.27 2.27-.43 4.12-3.66 4.12H4.94c-3.23 0-3.93-1.85-3.66-4.12l.83-6.91c.2-1.79.51-3.25 3.65-3.25Z" stroke="currentColor" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/>
-          <path d="M5.39 6.9V3.67c0-1.38.92-2.3 2.3-2.3h2.77c1.38 0 2.3.92 2.3 2.3V6.9" stroke="currentColor" stroke-width="1.64" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-        <span class="cart-count" data-cart-count hidden>0</span>
-      </button>
+  <!-- Landscape-phone rotate overlay (matches iyo .rotate-device) -->
+  <div class="rotate-device">
+    <div class="rotate__text-wrap">
+      <p class="highlight-text-h">Rotate your device to ensure a better experience</p>
     </div>
-  </header>
+  </div>
 
-  <main id="main">
-    <!-- HERO: single screen, WebGL product canvas + overlay -->
-    <section class="hero">
-      <div class="hero-glow" aria-hidden="true"></div>
-      <div class="hero-3d" data-hero-3d aria-label="A custom-fit floor mat rendered in three dimensions, swept by a laser scan line." role="img"></div>
+  <!-- =====================================================
+       NAV — faithful .navigation / .centered-nav structure
+       ===================================================== -->
+  <nav data-module="nav-alt" data-navigation-status="not-active" class="navigation">
 
-      <div class="hero-top">
-        <h1 class="hero-h">We make custom floor mats <span class="last">fitted to your exact car</span></h1>
-        <p class="hero-sub">Developed with 3D laser scanning. It covers everything with no gaps, and it looks like the factory put it there.</p>
-      </div>
+    <!-- dark scrim behind open nav -->
+    <div data-navigation-toggle="close" class="navigation__dark-bg"></div>
 
-      <div class="hero-bottom">
-        <!-- desktop: stacked fan-out deck (mirrors iyo product-cards module) -->
-        <div class="deck-wrap">
-          <div class="deck" data-deck>
-            <a class="deck-card" href="product.html?p=mats"><span class="dc-img" data-img="product-mats.jpg" aria-hidden="true"></span><span class="dc-title">Floor Mats</span></a>
-            <a class="deck-card" href="product.html?p=cargo"><span class="dc-img" data-img="product-cargo.jpg" aria-hidden="true"></span><span class="dc-title">SuperTrunk&trade;</span></a>
-            <a class="deck-card" href="product.html?p=capsule"><span class="dc-img" data-img="product-capsule.jpg" aria-hidden="true"></span><span class="dc-title">Capsule&trade;</span></a>
-            <a class="deck-card" href="index.html#why"><span class="dc-img" data-img="design.jpg" aria-hidden="true"></span><span class="dc-title">Seat Protection</span></a>
-          </div>
-          <div class="shop-now eyebrow">Shop now</div>
-        </div>
-        <!-- mobile: horizontal card row -->
-        <div class="shop-eyebrow eyebrow">Shop the lineup</div>
-        <div class="pcards">
-          <article class="pcard">
-            <div class="pcard-img"><span class="ph" data-img="product-mats.jpg" aria-hidden="true"></span></div>
-            <div class="pcard-title">Floor Mats</div>
-            <div class="pcard-ctas"><a class="pc-link pc-learn" href="product.html?p=mats">Learn more</a><a class="pc-link pc-shop" href="product.html?p=mats">Shop now</a></div>
-          </article>
-          <article class="pcard">
-            <div class="pcard-img"><span class="ph" data-img="product-cargo.jpg" aria-hidden="true"></span></div>
-            <div class="pcard-title">SuperTrunk&trade;</div>
-            <div class="pcard-ctas"><a class="pc-link pc-learn" href="product.html?p=cargo">Learn more</a><a class="pc-link pc-shop" href="product.html?p=cargo">Shop now</a></div>
-          </article>
-          <article class="pcard">
-            <div class="pcard-img"><span class="ph" data-img="product-capsule.jpg" aria-hidden="true"></span></div>
-            <div class="pcard-title">Capsule&trade;</div>
-            <div class="pcard-ctas"><a class="pc-link pc-learn" href="product.html?p=capsule">Learn more</a><a class="pc-link pc-shop" href="product.html?p=capsule">Shop now</a></div>
-          </article>
-          <article class="pcard soon">
-            <div class="pcard-img"><span class="ph" data-img="design.jpg" aria-hidden="true"></span></div>
-            <div class="pcard-title">Seat Protection</div>
-            <div class="pcard-ctas"><span class="pc-link pc-learn">Coming soon</span></div>
-          </article>
-        </div>
-      </div>
-      <div class="scroll-cue" aria-hidden="true">Scroll</div>
-    </section>
+    <!-- pill -->
+    <div data-module="nav" class="centered-nav">
+      <div class="centered-nav__bg"></div>
 
-    <!-- One restrained proof section (kept minimal, in the iyo register) -->
-    <section class="section" id="why">
-      <div class="wrap">
-        <div class="feature">
-          <div class="feat-media reveal"><span class="ph" data-img="engineering.jpg" aria-hidden="true"></span></div>
-          <div class="feat-copy reveal">
-            <span class="eyebrow">Scanned, not approximated</span>
-            <h2 class="h-section">Cut to the exact geometry of your car.</h2>
-            <p>Every mat begins as a 3D laser scan of your year, make and model. TriForce&trade; multi-layer construction holds the shape and channels liquid away from the carpet.</p>
-            <div class="feat-stats">
-              <div><div class="n">2.5x</div><div class="l">More coverage<sup>*</sup></div></div>
-              <div><div class="n">4.8&#9733;</div><div class="l">4,500+ ratings<sup>**</sup></div></div>
-              <div><div class="n">&#8734;</div><div class="l">Limited Lifetime Warranty</div></div>
+      <!-- header row: logo | CTA | 3×3 grid | separator | cart -->
+      <div class="centered-nav__header">
+
+        <a aria-label="TuxMat — Home" href="/" class="centered-nav__logo w-inline-block">
+          <span class="tm-wordmark">tux<span class="tm-wm-light">mat</span></span>
+        </a>
+
+        <div class="navbar__element-wrapper">
+          <!-- CTA — "Shop now" (mirrors iyo .nb__text-wrap hover dupe) -->
+          <div data-nav="cta" class="nav-cta-w">
+            <div class="navbar__button-wrap is--mats">
+              <a href="#products" class="navbar__button w-inline-block">
+                <div class="nb__text-wrap">
+                  <div class="nb__text"><div class="paragraph__hero">Shop now</div></div>
+                  <div class="nb__text"><div class="paragraph__hero">Shop now</div></div>
+                </div>
+              </a>
             </div>
           </div>
         </div>
-        <div class="compare reveal" data-compare style="margin-top:60px">
-          <div class="cimg after" data-img="compare-with.jpg" role="img" aria-label="Footwell with a TuxMat installed"></div>
-          <div class="cimg before" data-img="compare-without.jpg" role="img" aria-label="Footwell without a TuxMat"></div>
-          <div class="cbar" aria-hidden="true"></div><div class="handle" aria-hidden="true">&#8596;</div>
-          <span class="clabel l">Exposed</span><span class="clabel r">Protected</span>
-          <input type="range" min="0" max="100" value="50" aria-label="Reveal comparison">
+
+        <!-- 3×3 dot grid menu toggle -->
+        <div data-hover="" data-navigation-toggle="toggle" class="navbar__menu" role="button" tabindex="0" aria-label="Open navigation" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 16 16" fill="none" class="navbar__svg">
+            <circle cx="1.745" cy="1.745"  r="1.745" fill="currentColor" class="circle-1"/>
+            <circle cx="7.854" cy="1.745"  r="1.745" fill="currentColor" class="circle-2"/>
+            <circle cx="13.96" cy="1.745"  r="1.745" fill="currentColor" class="circle-3"/>
+            <circle cx="13.96" cy="7.853"  r="1.745" fill="currentColor" class="circle-4"/>
+            <circle cx="13.96" cy="13.96"  r="1.745" fill="currentColor" class="circle-5"/>
+            <circle cx="7.854" cy="7.853"  r="1.745" fill="currentColor" class="circle-6"/>
+            <circle cx="7.854" cy="13.96"  r="1.745" fill="currentColor" class="circle-7"/>
+            <circle cx="1.745" cy="7.853"  r="1.745" fill="currentColor" class="circle-8"/>
+            <circle cx="1.745" cy="13.96"  r="1.745" fill="currentColor" class="circle-9"/>
+          </svg>
         </div>
-      </div>
-    </section>
 
-    <!-- CTA -->
-    <section class="ctaband wrap">
-      <span class="eyebrow">Start with your vehicle</span>
-      <h2 class="h-section">Find your exact fit.</h2>
-      <a class="btn" href="product.html?p=mats" style="margin-top:26px">Shop your vehicle <span class="arr" aria-hidden="true">&rarr;</span></a>
-      <p class="foot" style="margin-top:24px">*Surface area comparison to 2025 Tesla Model Y OEM floor mats. &nbsp; **Based on 4,500+ Google Ratings.</p>
-    </section>
-  </main>
+        <!-- separator lines (iyo .nav__separator) -->
+        <div class="nav__separator">
+          <div class="separator__line"></div>
+          <div class="separator__line"></div>
+        </div>
 
-  <footer class="footer">
-    <div class="wrap footer-grid">
-      <div>
-        <span class="nav-logo">tux<span class="lc">mat</span></span>
-        <p class="brand-line">Custom-fit floor mats engineered to preserve the integrity of the vehicle interior.</p>
-      </div>
-      <div><h4>Shop</h4><ul><li><a href="product.html?p=mats">Floor mats</a></li><li><a href="product.html?p=cargo">SuperTrunk&trade;</a></li><li><a href="product.html?p=capsule">Capsule&trade;</a></li></ul></div>
-      <div><h4>Support</h4><ul><li><a href="https://www.tuxmat.ca/pages/faq">FAQ</a></li><li><a href="https://www.tuxmat.ca/pages/return-request">Returns</a></li><li><a href="https://www.tuxmat.ca/pages/warranty">Warranty</a></li></ul></div>
-      <div><h4>Company</h4><ul><li><a href="https://www.tuxmat.ca/pages/company">About</a></li></ul></div>
-    </div>
-    <div class="wrap footer-bottom"><span>&copy; 2026 TuxMat Inc.</span><span>Nothing Overlooked. Because You Notice.</span></div>
-  </footer>
+        <!-- cart icon -->
+        <div data-navigation-toggle="cart" class="navbar__cart" role="button" tabindex="0" aria-label="Open cart">
+          <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 18 21" fill="none" class="cart__svg">
+            <path d="M5.76 5.51h6.63c3.13 0 3.45 1.46 3.66 3.25l.83 6.91c.27 2.27-.43 4.12-3.66 4.12H4.94c-3.23 0-3.93-1.85-3.66-4.12l.83-6.91c.2-1.79.51-3.25 3.65-3.25Z" stroke="currentColor" stroke-width="1.636" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M5.39 6.9V3.67c0-1.38.92-2.3 2.3-2.3h2.77c1.38 0 2.3.92 2.3 2.3V6.9" stroke="currentColor" stroke-width="1.636" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div class="cart-count" id="cart-count">0</div>
+        </div>
+      </div><!-- /centered-nav__header -->
 
-  <!-- OVERLAYS -->
-  <div class="scrim" data-scrim></div>
+      <!-- ---- expanded menu panel (3×3 product cards) ---- -->
+      <div class="centered-nav__content">
+        <div class="centered-nav__inner">
+          <div data-navigation-panel="menu" class="card__menu">
 
-  <!-- full-screen card menu -->
-  <nav class="menu" data-menu aria-label="Products">
-    <div class="menu-inner">
-      <div class="menu-grid">
-        <a class="mcard" href="product.html?p=mats"><span class="ph" data-img="product-mats.jpg" aria-hidden="true"></span><span class="label">Floor Mats</span></a>
-        <a class="mcard" href="product.html?p=cargo"><span class="ph" data-img="product-cargo.jpg" aria-hidden="true"></span><span class="label">SuperTrunk&trade;</span></a>
-        <a class="mcard" href="product.html?p=capsule"><span class="ph" data-img="product-capsule.jpg" aria-hidden="true"></span><span class="label">Capsule&trade;</span></a>
-        <a class="mcard" href="#why"><span class="ph" data-img="macro-edge.jpg" aria-hidden="true"></span><span class="label">Engineering</span></a>
-      </div>
-    </div>
-    <div class="menu-foot">
-      <a href="https://www.tuxmat.ca/pages/faq">FAQ</a>
-      <a href="https://www.tuxmat.ca/pages/return-request">Returns</a>
-      <a href="https://www.tuxmat.ca/pages/warranty">Warranty</a>
-      <a href="https://www.tuxmat.ca/pages/company">About</a>
-      <span style="margin-left:auto">&copy;2026 TuxMat</span>
-    </div>
+            <div data-navigation-item="" class="card__row">
+              <a aria-label="Floor Mats" data-nav-page="mats" href="#mats" class="card__wrap is--mats w-inline-block">
+                <div class="card__content-wrap">
+                  <div class="nc__text-wrap"><div class="nc__text"><p class="paragraph is--nav-products">Floor Mats</p></div></div>
+                  <div class="nc__img-wrap"><div class="nc__img is--vertical">
+                    <div class="tm-card-img tm-img-mats"></div>
+                  </div></div>
+                </div>
+              </a>
+              <a aria-label="SuperTrunk" data-nav-page="supertrunk" href="#supertrunk" class="card__wrap is--trunk w-inline-block">
+                <div class="card__content-wrap">
+                  <div class="nc__text-wrap"><div class="nc__text"><p class="paragraph is--nav-products">SuperTrunk™</p></div></div>
+                  <div class="nc__img-wrap"><div class="nc__img is--vertical">
+                    <div class="tm-card-img tm-img-trunk"></div>
+                  </div></div>
+                </div>
+              </a>
+            </div>
+
+            <div data-navigation-item="" class="card__row">
+              <a aria-label="Capsule Licence Plate Case" data-nav-page="capsule" href="#capsule" class="card__wrap is--capsule w-inline-block">
+                <div class="card__content-wrap is--horizontal">
+                  <div class="nc__text-wrap"><div class="nc__text"><p class="paragraph is--nav-products">Capsule™</p></div></div>
+                  <div class="nc__img-wrap"><div class="nc__img">
+                    <div class="tm-card-img tm-img-capsule"></div>
+                  </div></div>
+                </div>
+              </a>
+            </div>
+
+            <div data-navigation-item="" class="card__row">
+              <a aria-label="Engineering" data-nav-page="why" href="#why" class="card__wrap is--why w-inline-block">
+                <div class="card__content-wrap">
+                  <div class="nc__text-wrap"><div class="nc__text is--vertical"><p class="paragraph is--nav-products">Engineering</p></div></div>
+                  <div class="nc__img-wrap"><div class="nc__img is--smaller">
+                    <div class="tm-card-img tm-img-eng"></div>
+                  </div></div>
+                </div>
+              </a>
+              <a aria-label="Fit Finder" data-nav-page="fit" href="#fit" class="card__wrap is--fit w-inline-block">
+                <div class="card__content-wrap">
+                  <div class="nc__text-wrap"><div class="nc__text is--vertical"><p class="paragraph is--nav-products">Fit Finder</p></div></div>
+                  <div class="nc__img-wrap"><div class="nc__img is--smaller">
+                    <div class="tm-card-img tm-img-fit"></div>
+                  </div></div>
+                </div>
+              </a>
+              <a aria-label="About TuxMat" data-nav-page="about" href="#about" class="card__wrap is--about w-inline-block">
+                <div class="card__content-wrap">
+                  <div class="nc__text-wrap"><div class="nc__text is--vertical"><p class="paragraph is--nav-products">About</p></div></div>
+                  <div class="nc__img-wrap"><div class="nc__img is--smaller">
+                    <div class="tm-card-img tm-img-about"></div>
+                  </div></div>
+                </div>
+              </a>
+            </div>
+
+            <div data-navigation-item="" class="copyright-nav">
+              <div class="copyright__text-wrap"><p class="paragraph is--nav-footer">©2026 TuxMat Inc.</p></div>
+              <div class="copyright__text-wrap"><p class="paragraph is--nav-footer">Nothing Overlooked.</p></div>
+            </div>
+
+          </div><!-- /card__menu -->
+
+          <!-- ---- cart panel ---- -->
+          <div data-navigation-panel="cart" class="cart__wrapper">
+            <div class="cart-container">
+              <div data-navigation-item="" class="cart-empty-message" id="cart-empty">
+                Your cart is empty.
+              </div>
+              <div data-navigation-item="" id="cart-items-list" class="cart-items-list" style="display:none"></div>
+              <div data-navigation-item="" class="cart_bottom-row" id="cart-bottom" style="display:none">
+                <div class="cart_summary">
+                  <div class="cart_total-row">
+                    <div class="label">Subtotal</div>
+                    <div class="cart-total" id="cart-total">$0</div>
+                  </div>
+                  <div class="w-layout-hflex cart_cart-actions">
+                    <a href="/checkout" class="checkout__button w-button">Checkout</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div><!-- /centered-nav__content -->
+
+    </div><!-- /centered-nav -->
   </nav>
 
-  <!-- slide cart (built/managed by app.js) -->
-  <aside class="cart" data-cart aria-label="Cart"></aside>
+  <!-- =====================================================
+       HERO — .section.is--home  (matches iyo structure)
+       ===================================================== -->
+  <div data-taxi="" class="app">
+    <div data-taxi-view="" class="content">
+      <div class="section is--home">
+        <div class="main-wrap">
 
-  <!-- page-transition veil -->
-  <div class="veil" data-veil></div>
+          <!-- heading -->
+          <div class="info__wrapper">
+            <div class="info__text-wrap">
+              <h1 data-module="heading" class="h-h4 is--configurator">
+                Custom-fit floor mats <span class="info__text-last">for your exact car</span>
+              </h1>
+            </div>
+          </div>
 
-  <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
-  <script src="app.js"></script>
+          <!-- Mobile product cards (horizontal scroll, data-module=product-card-mobile) -->
+          <div class="product-cards-hero">
+            <div data-delay="500" data-module="product-card-mobile" role="list" class="product-list">
+              <div role="listitem" class="product-item">
+                <div class="product-card is--mobile">
+                  <div class="product-card-img tm-prod-img tm-prod-mats"></div>
+                  <div class="product-content">
+                    <div class="product-title-mobile"><p class="p__video-cards is--mobile">Floor Mats</p></div>
+                    <div class="product-cta-wrap">
+                      <a href="#mats" class="learn-cta w-inline-block"><div class="paragraph is--product-cards">Learn more</div></a>
+                      <a href="#mats" class="shop-cta w-inline-block"><div class="paragraph is--product-cards">Shop now</div></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="listitem" class="product-item">
+                <div class="product-card is--mobile">
+                  <div class="product-card-img tm-prod-img tm-prod-trunk"></div>
+                  <div class="product-content">
+                    <div class="product-title-mobile"><p class="p__video-cards is--mobile">SuperTrunk™</p></div>
+                    <div class="product-cta-wrap">
+                      <a href="#supertrunk" class="learn-cta w-inline-block"><div class="paragraph is--product-cards">Learn more</div></a>
+                      <a href="#supertrunk" class="shop-cta w-inline-block"><div class="paragraph is--product-cards">Shop now</div></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="listitem" class="product-item">
+                <div class="product-card is--mobile">
+                  <div class="product-card-img tm-prod-img tm-prod-capsule"></div>
+                  <div class="product-content">
+                    <div class="product-title-mobile"><p class="p__video-cards is--mobile">Capsule™</p></div>
+                    <div class="product-cta-wrap">
+                      <a href="#capsule" class="learn-cta w-inline-block"><div class="paragraph is--product-cards">Learn more</div></a>
+                      <a href="#capsule" class="shop-cta w-inline-block"><div class="paragraph is--product-cards">Shop now</div></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div role="listitem" class="product-item">
+                <div class="product-card is--mobile">
+                  <div class="product-card-img tm-prod-img tm-prod-seat"></div>
+                  <div class="product-content">
+                    <div class="product-title-mobile"><p class="p__video-cards is--mobile">Seat Protection</p></div>
+                    <div class="product-cta-wrap">
+                      <a href="#seat" class="learn-cta w-inline-block"><div class="paragraph is--product-cards">Coming soon</div></a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Desktop product-cards fan (data-module=product-cards, mirrors iyo exactly) -->
+          <div data-wf--product-cards--variant="home" class="product-cards-wrap is--desktop">
+            <div data-module="product-cards" role="list" class="product-card-wrap">
+              <div role="listitem" class="product-w">
+                <a aria-label="Seat Protection" href="#seat" class="product-card w-inline-block">
+                  <div class="product-img tm-prod-img tm-prod-seat"></div>
+                </a>
+                <div class="product-title"><p class="paragraph is--product-cards">Seat Protection</p></div>
+              </div>
+              <div role="listitem" class="product-w">
+                <a aria-label="Capsule Licence Plate Case" href="#capsule" class="product-card w-inline-block">
+                  <div class="product-img tm-prod-img tm-prod-capsule"></div>
+                </a>
+                <div class="product-title"><p class="paragraph is--product-cards">Capsule™</p></div>
+              </div>
+              <div role="listitem" class="product-w">
+                <a aria-label="SuperTrunk Cargo Liner" href="#supertrunk" class="product-card w-inline-block">
+                  <div class="product-img tm-prod-img tm-prod-trunk"></div>
+                </a>
+                <div class="product-title"><p class="paragraph is--product-cards">SuperTrunk™</p></div>
+              </div>
+              <div role="listitem" class="product-w">
+                <a aria-label="Floor Mats" href="#mats" class="product-card w-inline-block">
+                  <div class="product-img tm-prod-img tm-prod-mats"></div>
+                </a>
+                <div class="product-title"><p class="paragraph is--product-cards">Floor Mats</p></div>
+              </div>
+            </div>
+            <div class="shop-now-text">
+              <p class="paragraph is--eyebrow">Shop now</p>
+            </div>
+          </div>
+
+          <!-- WebGL canvas container (mirrors iyo .canvas-w.scroller.is--home) -->
+          <div data-type="home" data-module="webgl" data-gl="c" class="canvas-w scroller is--home" id="hero-canvas-w"></div>
+
+        </div><!-- /main-wrap -->
+      </div><!-- /section.is--home -->
+    </div><!-- /content -->
+  </div><!-- /app -->
+
+  <!-- =====================================================
+       THREE.JS IMPORTMAP + HERO SCENE
+       ===================================================== -->
   <script type="importmap">
     { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.1/build/three.module.js" } }
   </script>
+
+  <!-- Lenis + jQuery + app JS -->
+  <script src="lenis.min.js"></script>
+  <script src="jquery.min.js"></script>
+  <script src="app.js"></script>
+
+  <!-- Three.js hero (ES module) -->
   <script type="module" src="hero3d.js"></script>
 </body>
 </html>
