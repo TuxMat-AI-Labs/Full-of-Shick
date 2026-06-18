@@ -15,10 +15,11 @@
   --faint:rgba(255,255,255,.34);
   --line:rgba(255,255,255,.14);
   --line-2:rgba(255,255,255,.22);
-  --card:#0c0c0e;
-  --card-2:#141417;
-  --nav-h:64px;
-  --ease:cubic-bezier(.22,.61,.36,1);
+  --card:#101010;        /* iyo .n-card / .link */
+  --card-2:#151515;      /* iyo .n-card hover  */
+  --accent:#cdd6ff;      /* iyo agent-text periwinkle */
+  --nav-h:84px;
+  --ease:cubic-bezier(.625,.05,0,1);  /* iyo signature easing */
   --maxw:1320px;
 }
 
@@ -59,11 +60,14 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.02}
 /* ===========================================================
    NAV — centered logotype, dot-grid menu, cart
    =========================================================== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:120;height:var(--nav-h);
+/* floating rounded-pill nav, mirroring iyo .centered-nav (border-radius:3em) */
+.nav{position:fixed;top:12px;left:12px;right:12px;z-index:120;height:56px;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 18px;mix-blend-mode:difference;color:#fff;
+  padding:0 12px 0 22px;color:#fff;
+  background:rgba(16,16,16,.55);border:1px solid var(--line);border-radius:3em;
+  backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);
 }
-@media(min-width:880px){.nav{padding:0 30px}}
+@media(min-width:880px){.nav{left:50%;right:auto;transform:translateX(-50%);width:min(980px,calc(100% - 36px));padding:0 14px 0 26px}}
 .nav-logo{font-weight:800;font-size:21px;letter-spacing:-.04em;line-height:1}
 .nav-logo .lc{font-weight:300}
 .nav-right{display:flex;align-items:center;gap:14px}
