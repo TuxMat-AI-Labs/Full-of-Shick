@@ -104,7 +104,36 @@ h1,h2,h3,h4{font-weight:500;letter-spacing:-.02em;line-height:1.02}
 .hero-bottom{position:relative;z-index:2;padding:0 0 max(22px,env(safe-area-inset-bottom))}
 .shop-eyebrow{text-align:center;margin-bottom:14px}
 
-/* product card row */
+/* ---- desktop fan-out deck (iyo product-cards module) ---- */
+.deck-wrap{display:none;position:relative;text-align:center}
+.deck{position:relative;width:96px;height:96px;margin:0 auto}
+.deck-card{position:absolute;left:0;top:0;width:96px;height:96px;border-radius:16px;overflow:hidden;
+  border:1px solid var(--line);background:var(--card);transform-origin:center bottom;
+  transition:transform .64s var(--ease),border-color .3s var(--ease)}
+.deck-card .dc-img{position:absolute;inset:0;background-size:cover;background-position:center}
+.deck-card::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 38%,rgba(0,0,0,.55));opacity:0;transition:opacity .5s var(--ease)}
+.dc-title{position:absolute;left:calc(100% + 16px);top:50%;white-space:nowrap;font-size:15px;font-weight:600;color:#fff;
+  opacity:0;transform:translateY(-50%) translateX(-10px);transition:opacity .5s var(--ease),transform .5s var(--ease);z-index:3;pointer-events:none}
+/* collapsed: a stack peeking upward, front card lowest */
+.deck-card:nth-child(1){transform:translateY(0) scale(1);z-index:4}
+.deck-card:nth-child(2){transform:translateY(-13px) scale(.93);z-index:3}
+.deck-card:nth-child(3){transform:translateY(-26px) scale(.86);z-index:2}
+.deck-card:nth-child(4){transform:translateY(-39px) scale(.79);z-index:1}
+.deck-card:nth-child(n+2)::after{opacity:1}
+/* hover: fan upward into a column, reveal titles */
+.deck:hover .deck-card{border-color:var(--line-2)}
+.deck:hover .deck-card::after{opacity:0}
+.deck:hover .deck-card:nth-child(1){transform:translateY(0) scale(1)}
+.deck:hover .deck-card:nth-child(2){transform:translateY(-108px) scale(1)}
+.deck:hover .deck-card:nth-child(3){transform:translateY(-216px) scale(1)}
+.deck:hover .deck-card:nth-child(4){transform:translateY(-324px) scale(1)}
+.deck:hover .dc-title{opacity:1;transform:translateY(-50%) translateX(0)}
+.deck-card:hover{border-color:#fff}
+.shop-now{margin-top:18px;transition:opacity .5s var(--ease)}
+.deck-wrap:has(.deck:hover) .shop-now{opacity:0}
+@media(min-width:900px) and (hover:hover){.pcards,.shop-eyebrow{display:none}.deck-wrap{display:block;padding-bottom:6px}}
+
+/* product card row (mobile) */
 .pcards{display:flex;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 18px 6px;scrollbar-width:none}
 .pcards::-webkit-scrollbar{display:none}
 @media(min-width:900px){.pcards{justify-content:center;overflow:visible;padding:0 22px}}
